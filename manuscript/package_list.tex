@@ -1,0 +1,38 @@
+% Magda Gregorova, 2025-01-10
+% example list of useful packages
+% complement and adapt as you see fit
+
+% text encoding
+\usepackage[utf8]{inputenc} % standard text encoding
+\usepackage[english]{babel} % typographical rules for English language
+\usepackage{csquotes} % better handling of quotes (e.g. in refs.)
+\usepackage[hidelinks]{hyperref} % cross-referencing for hypertext links
+
+% pdf and page handling
+\usepackage{pdfpages} % simplify insertion of external pdf pages
+\usepackage{lscape} % for rotating pages to landscape
+\usepackage{pdflscape} % pdf support for lscape
+\usepackage{epstopdf} % convert eps to pdf
+
+% floats, images, tables
+\usepackage{graphicx} % \includegraphics with more options
+\graphicspath{{./pics/}} % path to images
+\usepackage{xcolor} % using colors
+\usepackage{float} % better control of floats
+\usepackage[verbose]{placeins} % correct placement of floats within sections (verbose logging)
+\usepackage{wrapfig} % wrap text around figures
+\usepackage{caption} % customize captions
+\usepackage{subcaption} % sub-figures with sub-captions
+\usepackage{multirow} % tables cells spanning multiple rows
+\usepackage{longtable} % tables over several pages
+\usepackage{booktabs} % improved tables
+
+% other goodies
+\usepackage[shortlabels]{enumitem} % more control over layout of list environments
+\usepackage[linesnumbered, boxed, resetcount]{algorithm2e} % for algorithms
+\usepackage{listings} % for code listings
+
+% compatibility with koma-script
+\usepackage{scrhack} % compatibility package to emulate the former KOMA-Script
+\usepackage[markcase=ignoreuppercase,headsepline,plainfootsepline]{scrlayer-scrpage} % manage page styles, markcase: automatic typesetting in heads, headsepline: line underneath the headerm, plainfootsepline: rule above the footer
+

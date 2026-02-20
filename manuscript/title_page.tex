@@ -1,0 +1,44 @@
+% Magda Gregorova, 2025-01-10
+% standard title page
+
+%% fill in your information
+\def\ThesisAuthor{Your Name}
+\def\ThesisTitle{Great Research About My Favourite Topic}
+\def\SupervisorOne{Prof.\ Dr.\ Magda Gregorova}
+\def\SupervisorTwo{Prof.\ Dr.\ C D}
+\def\SumbissionDate{\today}
+
+% for anonymous version
+\def\iswithfullname{1} % comment this out to create anonymous version
+\ifdefined\iswithfullname
+  \def\ShowThesisAuthor{\ThesisAuthor}
+\else
+  \def\ShowThesisAuthor{N.~N.}
+\fi
+
+% metadata of pdf
+\hypersetup{
+pdfauthor={\ShowThesisAuthor},
+pdftitle={\ThesisTitle},
+}
+
+% typsetting of titlepage
+\titlehead{Technical University of Applied Sciences Würzburg-Schweinfurt (THWS)\\
+Faculty of Computer Science and Business Information Systems}
+\title{\ThesisTitle\\[15mm]}
+\subject{Master Thesis}
+\subtitle{{\normalsize submitted for the completion of degree} \\
+\vskip 0.5cm
+Master of Science \\
+\vskip 0.2cm
+in \\
+\vskip 0.2cm
+Artificial Intelligence
+}
+\author{\ShowThesisAuthor}
+\date{\normalsize Submitted on: \SumbissionDate}
+\publishers{\raggedright
+  \normalsize{Supervisor: \SupervisorOne}\\
+  \normalsize{Second Examiner: \SupervisorTwo}\\
+}
+\maketitle

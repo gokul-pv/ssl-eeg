@@ -1,0 +1,64 @@
+% Magda Gregorova, 2025-01-10
+% Non-binding template for MSc thesis in THWS/MAI submitted to Magda Gregorova
+% The template is provided "as is" without any guarantees.
+% You are free to use and modify as you see fit.
+
+\documentclass[12pt,twoside=false,a4paper,parskip]{scrbook} % koma-script book environment for cleaner typesetting and more flexibility
+% \documentclass[12pt,twoside,a4paper,parskip,openright]{scrbook} % use this for double-sided printing
+
+%% ========== preamble ========== %%
+
+\input{package_list.tex}
+
+% biblatex settings for better referencing
+\usepackage[backend=biber, % more flexible than bibtex
+            citestyle=authoryear,
+            style=authoryear,
+            maxbibnames = 10,
+            date = year,
+            doi=false,
+            isbn=false,
+            url=false,
+            eprint=false
+            ]{biblatex}
+\DeclareDelimFormat{nameyeardelim}{\addcomma\space} % comma to separate name and year in cite command
+\addbibresource{refs.bib} 
+
+\input{custom_commands.tex}
+
+%% ========== main part ========== %%
+
+\begin{document}
+
+\frontmatter
+
+\input{title_page}
+
+\input{abstract}
+
+\tableofcontents
+
+\mainmatter
+
+\input{ch_intro}
+
+\input{ch_formatting}
+
+\input{ch_other}
+
+\backmatter
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\appendix
+\addchap{Appendix}
+
+\input{appendix}
+
+% this you need to sign and include the signed pdf
+\input{declaration_oath}
+
+\end{document}
