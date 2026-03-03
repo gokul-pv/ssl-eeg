@@ -5,11 +5,18 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "matplotlib>=3.10.8",
     "mne>=1.11.0",
     "mne-bids>=0.17.0",
+    "numpy>=2.2.6",
+    "pandas>=2.3.3",
+    "pybids>=0.21.0",
+    "seaborn>=0.13.2",
+    "wandb>=0.25.0",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel>=7.2.0",
+    "tqdm>=4.67.3",
 ]
