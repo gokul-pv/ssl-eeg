@@ -11,12 +11,15 @@ dependencies = [
     "numpy>=2.2.6",
     "pandas>=2.3.3",
     "pybids>=0.21.0",
+    "scikit-learn>=1.7.2",
     "seaborn>=0.13.2",
     "wandb>=0.25.0",
+    "xgboost>=3.2.0",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
     "tqdm>=4.67.3",
 ]
