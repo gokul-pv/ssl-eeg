@@ -1,0 +1,39 @@
+Bootstrap: docker
+From: python:3.10-slim
+
+%files
+    pyproject.toml /app/pyproject.toml
+    uv.lock /app/uv.lock
+
+%post
+    set -e
+    export UV_PROJECT_ENVIRONMENT=/app/.venv
+
+    # ---- system deps ----
+    apt-get update && apt-get install -y --no-install-recommends \
+        curl ca-certificates build-essential git
+
+    # ---- install uv (system-wide) ----
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+
+    # make uv available globally
+    mv /root/.local/bin/uv /usr/local/bin/uv
+    cd /app
+
+    # ---- install python deps using uv ----
+    uv sync --frozen --no-cache
+
+    # cleanup
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+
+%environment
+    export PATH="/app/.venv/bin:/usr/local/bin:$PATH"
+    export PYTHONUNBUFFERED=1
+    export VIRTUAL_ENV=/app/.venv
+
+%runscript
+    exec python "$@"
+
+%help
+    Container with Python 3.10 + uv + dependencies from pyproject.toml
