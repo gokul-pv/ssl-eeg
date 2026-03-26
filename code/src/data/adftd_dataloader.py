@@ -7,11 +7,16 @@ import random
 from torch.utils.data import Dataset, DataLoader
 
 
-def normalize_batch_ts(batch):
-    mean_values = batch.mean(axis=1, keepdims=True)
-    std_values = batch.std(axis=1, keepdims=True)
-    std_values[std_values == 0] = 1.0
-    return (batch - mean_values) / std_values
+def padding_mask(lengths, max_len=None):
+    batch_size = lengths.numel()
+    if max_len is None:
+        max_len = int(lengths.max().item())
+    return (
+        torch.arange(0, max_len, device=lengths.device)
+        .type_as(lengths)
+        .repeat(batch_size, 1)
+        .lt(lengths.unsqueeze(1))
+    )
 
 
 def collate_fn(data, max_len=None):
@@ -31,17 +36,6 @@ def collate_fn(data, max_len=None):
     masks = padding_mask(torch.tensor(lengths, dtype=torch.int16), max_len=max_len)
     return x_out, targets, masks
 
-
-def padding_mask(lengths, max_len=None):
-    batch_size = lengths.numel()
-    if max_len is None:
-        max_len = int(lengths.max().item())
-    return (
-        torch.arange(0, max_len, device=lengths.device)
-        .type_as(lengths)
-        .repeat(batch_size, 1)
-        .lt(lengths.unsqueeze(1))
-    )
 
 def get_id_list_adftd(args, data_list: np.ndarray, a=0.6, b=0.8):
     all_ids = list(data_list[:, 1])
@@ -91,16 +85,23 @@ def get_id_list_adftd(args, data_list: np.ndarray, a=0.6, b=0.8):
     raise ValueError("Invalid cross_val. Please use fixed, mccv, or loso.")
 
 
+def normalize_batch_ts(batch):
+    mean_values = batch.mean(axis=1, keepdims=True)
+    std_values = batch.std(axis=1, keepdims=True)
+    std_values[std_values == 0] = 1.0
+    return (batch - mean_values) / std_values
+
+
 class ADFTDRSDataset(Dataset):
     def __init__(self, args, root_path, flag):
         super().__init__()
         self.args = args
         self.no_normalize = args.no_normalize
 
-        dataset_root = os.path.join(root_path, args.dataset_name)
-        meta_path = os.path.join(dataset_root, "meta.json")
-        x_path = os.path.join(dataset_root, "X.dat")
-        y_path = os.path.join(dataset_root, "y.dat")
+        dataset_root = root_path / args.dataset_name
+        meta_path = dataset_root / "meta.json"
+        x_path = dataset_root / "X.dat"
+        y_path = dataset_root / "y.dat"
 
         if not os.path.exists(meta_path):
             raise FileNotFoundError(f"meta.json not found at {meta_path}")
@@ -113,12 +114,13 @@ class ADFTDRSDataset(Dataset):
         c = int(meta["C"])
 
         self.X_mem = np.memmap(x_path, dtype=np.float32, mode="r", shape=(n, t, c))
-        y_mem = np.memmap(y_path, dtype=np.float32, mode="r", shape=(n, 3))
+        y_mem = np.memmap(y_path, dtype=np.float32, mode="r", shape=(n, 2))
 
         subj_ids = y_mem[:, 1].astype(int)
         labels = y_mem[:, 0].astype(int)
-        unique_sids = np.unique(subj_ids)
-        subject_table = np.asarray([[int(labels[np.where(subj_ids == sid)[0][0]]), int(sid)] for sid in unique_sids])
+        unique_sids, idx = np.unique(subj_ids, return_index=True)
+        subject_table = np.column_stack((labels[idx], subj_ids[idx]))
+        # subject_table = np.asarray([[int(labels[np.where(subj_ids == sid)[0][0]]), int(sid)] for sid in unique_sids])
 
         a, b = args.ratio_a, args.ratio_b
         self.all_ids, self.train_ids, self.val_ids, self.test_ids = get_id_list_adftd(args, subject_table, a, b)
@@ -137,14 +139,17 @@ class ADFTDRSDataset(Dataset):
         self.indices = np.where(mask)[0].astype(int)
         self.y = np.asarray(y_mem[self.indices])
 
-        sampling_rate_list = list(map(int, args.sampling_rate_list.split(",")))
-        sampling_mask = np.isin(self.y[:, 2], sampling_rate_list)
-        if sampling_mask.sum() == 0:
-            raise RuntimeError(
-                f"No matching sampling rates. Found={np.unique(self.y[:, 2])}, target={sampling_rate_list}"
-            )
-        self.indices = self.indices[sampling_mask]
-        self.y = self.y[sampling_mask]
+        if self.y.shape[1] > 2:
+            sampling_rate_list = list(map(int, args.sampling_rate_list.split(",")))
+            sampling_mask = np.isin(self.y[:, 2], sampling_rate_list)
+
+            if sampling_mask.sum() == 0:
+                raise RuntimeError(
+                    f"No matching sampling rates. Found={np.unique(self.y[:, 2])}, target={sampling_rate_list}"
+                )
+
+            self.indices = self.indices[sampling_mask]
+            self.y = self.y[sampling_mask]
 
         if args.classify_choice == "ad_vs_hc":
             label_mask = self.y[:, 0] < 2

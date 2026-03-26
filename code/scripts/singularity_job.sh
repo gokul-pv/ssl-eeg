@@ -12,5 +12,5 @@ module load singularity/4.1.2
 
 srun singularity exec --userns \
     --bind /mnt/datasets_v7:/mnt/datasets_v7 \
-    /work/gokul/uv-env.sif \
+    /work/gokul/env_cpu.sif \
     python /work/gokul/ssl-eeg/code/src/preprocess.py $SLURM_ARRAY_TASK_ID

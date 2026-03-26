@@ -1,9 +1,10 @@
 Bootstrap: docker
-From: python:3.10-slim
+From: pytorch/pytorch:2.10.0-cuda12.6-cudnn9-runtime
 
 %files
     pyproject.toml /app/pyproject.toml
     uv.lock /app/uv.lock
+    .python-version /app/.python-version
 
 %post
     set -e
