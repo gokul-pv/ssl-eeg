@@ -1,0 +1,32 @@
+# Layer-wise probing of BrainLM-EEG × FEP vs HC
+
+mode: linear_probe
+dataset_config: configs/dataset/fep_cross.yaml
+model_config: configs/model/brainlm_eeg.yaml
+pretrained_encoder_path: outputs/checkpoints/pretrain/brainlmeeg/best_pretrain_encoder.pth
+pool_mode: mean
+layers_to_probe: [0, 1, 2, 3, -1]
+split_save_dir: metadata
+pretrain_seed: 42
+seed: 42
+n_folds: 5
+gpu: 0
+train_epochs: 50
+patience: 10
+learning_rate: 0.001
+weight_decay: 0.0
+warmup_epochs: 0
+max_grad_norm: 1.0
+batch_size: 128
+num_workers: 8
+persistent_workers: true
+early_stopping_metric: val_loss
+use_subject_vote: true
+save_dir: outputs/experiments/layer_analysis
+use_wandb: true
+wandb_project: eeg-ssl-layer-analysis
+wandb_entity: null
+wandb_mode: offline
+wandb_dir: outputs/wandb/layer_analysis
+wandb_upload_terminal_log_artifact: true
+terminal_log_dir: outputs/logs/layer_analysis

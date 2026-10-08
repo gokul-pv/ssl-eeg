@@ -1,0 +1,305 @@
+{
+  "dataset_id": "ds004504",
+  "seed": 42,
+  "cross_val": "mccv",
+  "task": "ftd_vs_hc",
+  "train_subject_ids": [
+    39,
+    40,
+    45,
+    47,
+    49,
+    52,
+    55,
+    57,
+    59,
+    60,
+    62,
+    63,
+    65,
+    67,
+    69,
+    72,
+    73,
+    74,
+    78,
+    83,
+    85,
+    86,
+    87
+  ],
+  "val_subject_ids": [
+    41,
+    43,
+    51,
+    53,
+    64,
+    71,
+    75,
+    76,
+    77
+  ],
+  "test_subject_ids": [
+    38,
+    44,
+    48,
+    54,
+    61,
+    68,
+    70,
+    82,
+    88
+  ],
+  "train_subjects": [
+    {
+      "pid": 39,
+      "subject_ids": [
+        "sub-039"
+      ]
+    },
+    {
+      "pid": 40,
+      "subject_ids": [
+        "sub-040"
+      ]
+    },
+    {
+      "pid": 45,
+      "subject_ids": [
+        "sub-045"
+      ]
+    },
+    {
+      "pid": 47,
+      "subject_ids": [
+        "sub-047"
+      ]
+    },
+    {
+      "pid": 49,
+      "subject_ids": [
+        "sub-049"
+      ]
+    },
+    {
+      "pid": 52,
+      "subject_ids": [
+        "sub-052"
+      ]
+    },
+    {
+      "pid": 55,
+      "subject_ids": [
+        "sub-055"
+      ]
+    },
+    {
+      "pid": 57,
+      "subject_ids": [
+        "sub-057"
+      ]
+    },
+    {
+      "pid": 59,
+      "subject_ids": [
+        "sub-059"
+      ]
+    },
+    {
+      "pid": 60,
+      "subject_ids": [
+        "sub-060"
+      ]
+    },
+    {
+      "pid": 62,
+      "subject_ids": [
+        "sub-062"
+      ]
+    },
+    {
+      "pid": 63,
+      "subject_ids": [
+        "sub-063"
+      ]
+    },
+    {
+      "pid": 65,
+      "subject_ids": [
+        "sub-065"
+      ]
+    },
+    {
+      "pid": 67,
+      "subject_ids": [
+        "sub-067"
+      ]
+    },
+    {
+      "pid": 69,
+      "subject_ids": [
+        "sub-069"
+      ]
+    },
+    {
+      "pid": 72,
+      "subject_ids": [
+        "sub-072"
+      ]
+    },
+    {
+      "pid": 73,
+      "subject_ids": [
+        "sub-073"
+      ]
+    },
+    {
+      "pid": 74,
+      "subject_ids": [
+        "sub-074"
+      ]
+    },
+    {
+      "pid": 78,
+      "subject_ids": [
+        "sub-078"
+      ]
+    },
+    {
+      "pid": 83,
+      "subject_ids": [
+        "sub-083"
+      ]
+    },
+    {
+      "pid": 85,
+      "subject_ids": [
+        "sub-085"
+      ]
+    },
+    {
+      "pid": 86,
+      "subject_ids": [
+        "sub-086"
+      ]
+    },
+    {
+      "pid": 87,
+      "subject_ids": [
+        "sub-087"
+      ]
+    }
+  ],
+  "val_subjects": [
+    {
+      "pid": 41,
+      "subject_ids": [
+        "sub-041"
+      ]
+    },
+    {
+      "pid": 43,
+      "subject_ids": [
+        "sub-043"
+      ]
+    },
+    {
+      "pid": 51,
+      "subject_ids": [
+        "sub-051"
+      ]
+    },
+    {
+      "pid": 53,
+      "subject_ids": [
+        "sub-053"
+      ]
+    },
+    {
+      "pid": 64,
+      "subject_ids": [
+        "sub-064"
+      ]
+    },
+    {
+      "pid": 71,
+      "subject_ids": [
+        "sub-071"
+      ]
+    },
+    {
+      "pid": 75,
+      "subject_ids": [
+        "sub-075"
+      ]
+    },
+    {
+      "pid": 76,
+      "subject_ids": [
+        "sub-076"
+      ]
+    },
+    {
+      "pid": 77,
+      "subject_ids": [
+        "sub-077"
+      ]
+    }
+  ],
+  "test_subjects": [
+    {
+      "pid": 38,
+      "subject_ids": [
+        "sub-038"
+      ]
+    },
+    {
+      "pid": 44,
+      "subject_ids": [
+        "sub-044"
+      ]
+    },
+    {
+      "pid": 48,
+      "subject_ids": [
+        "sub-048"
+      ]
+    },
+    {
+      "pid": 54,
+      "subject_ids": [
+        "sub-054"
+      ]
+    },
+    {
+      "pid": 61,
+      "subject_ids": [
+        "sub-061"
+      ]
+    },
+    {
+      "pid": 68,
+      "subject_ids": [
+        "sub-068"
+      ]
+    },
+    {
+      "pid": 70,
+      "subject_ids": [
+        "sub-070"
+      ]
+    },
+    {
+      "pid": 82,
+      "subject_ids": [
+        "sub-082"
+      ]
+    },
+    {
+      "pid": 88,
+      "subject_ids": [
+        "sub-088"
+      ]
+    }
+  ]
+}

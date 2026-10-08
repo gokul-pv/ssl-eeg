@@ -1,0 +1,42 @@
+# REVE (frozen) linear probe × FEP vs HC — loso
+
+seed: 42
+gpu: 0
+
+mode: "linear_probe"
+
+freeze_backbone: true
+
+dataset_config: "configs/dataset/fep_cross.yaml"
+model_config:   "configs/model/reve_bd_hf.yaml"
+
+# Training
+train_epochs: 50
+patience: 10
+early_stopping_metric: "val_loss"
+learning_rate: 1.0e-3
+weight_decay: 0.0
+warmup_epochs: 0
+max_grad_norm: 1.0
+log_interval: 50
+log_batch: true
+batch_size: 128
+num_workers: 8
+persistent_workers: true
+
+protocol: "loso"              # rolling (five-fold CV) | loso | full
+
+
+# Output roots
+save_dir: "outputs/checkpoints/probe"
+terminal_log_dir: "outputs/logs/probe"
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-loso-comparison"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/probe"
+wandb_data_dir: "outputs/wandb/probe/_wandb_data"
+wandb_upload_terminal_log_artifact: true

@@ -1,0 +1,46 @@
+% !TEX root = ../main.tex
+% =============================================================================
+% CHAPTER 7 - CONCLUSION
+% VOICE: impersonal throughout. Never "we", never "I" -- except
+%        \section{Personal Takeaways}, which the THWS template requires in
+%        first person. That section is fenced off from tools/style_audit.py.
+% =============================================================================
+
+\chapter{Conclusion}\label{ch:conclusion}
+
+This thesis investigated whether self-supervised pretraining can produce useful and generalisable representations of resting-state EEG for clinical classification. BrainLM, originally developed for fMRI, was adapted to multichannel EEG and evaluated across four clinical classification tasks. Two controlled extensions were also investigated, incorporating electrode geometry and EEG microstates, together with the effects of masking configuration, encoder depth, and downstream adaptation.
+
+Overall, the results provide a conditional assessment of self-supervised EEG representation learning. The proposed BrainLM-EEG models produced reusable representations that were competitive with classical machine learning, supervised deep learning, and existing pretrained EEG models. Performance was strong in absolute terms on AD and FTD, with the clearest relative advantage observed for FTD under LOSO evaluation. However, no model or architectural modification was consistently superior across tasks and evaluation settings. The benefit of self-supervised pretraining therefore depended on the clinical task, the encoder representation used for downstream classification, and the evaluation protocol.
+
+
+The results further demonstrate an important distinction between participant level and cross-dataset generalisation. Performance on held-out participants within the same dataset did not necessarily translate to an independently acquired dataset. In particular, the FEP-to-SCZ transfer experiment showed that differences in cohorts and acquisition conditions remained challenging for both pretrained and supervised approaches. Strong within-dataset performance should therefore not be interpreted as evidence of robustness to broader dataset shifts.
+
+The representation analyses showed that downstream performance was also influenced by choices made during pretraining and representation extraction. Masking configuration and encoder depth affected classification performance, and intermediate encoder layers were more informative than the final layer for some tasks. CLS-token perturbation indicated that the token contributed to masked reconstruction, while reconstructed EEG retained information that could be used for downstream classification. The geometry-aware and microstate-informed variants produced improvements in individual settings, but neither provided a consistent advantage across tasks.
+
+Taken together, these findings support masked self-supervised learning as a viable approach for learning reusable representations from resting-state EEG, while showing that representation quality and downstream utility depend on the clinical task, model design, and evaluation setting. The main challenge is therefore not only to learn informative EEG representations, but to understand when they are useful and whether that utility generalises across participants and independently collected datasets. Further progress will require stronger external validation, careful control of dataset and participant effects, and model designs that account for the substantial heterogeneity of clinical EEG.
+
+
+\section{Future Work}
+
+First, cross-dataset evaluation should be extended to additional independent EEG datasets. The present external evaluation was limited to FEP-to-SCZ transfer. Testing additional source-target pairs, particularly for AD and FTD where stronger within-dataset performance was observed, would provide stronger evidence of whether the learned representations remain useful across different cohorts and acquisition settings.
+
+Second, differences in the usefulness of the learned representations across clinical conditions should be investigated more closely. AD and FTD showed stronger and more consistent downstream performance than FEP and MDD, while the layer-wise analysis also revealed different patterns across tasks. Future work should investigate which signal characteristics, learned representations, and task formulations contribute to these differences. This could help determine whether alternative representations or modelling strategies are better suited to clinical tasks for which the present approach produced weaker or less consistent results.
+
+Third, future work could examine individual deviations from a healthy reference distribution in the learned EEG representation space. Rather than formulating every clinical task as a direct patient-versus-control classification problem, representations from healthy participants could be used to characterise typical variation, against which individuals from clinical groups could be compared. This would shift the analysis towards how and to what extent an individual's EEG representation differs from the reference population, which may be particularly useful for heterogeneous neurological and psychiatric conditions. Such an approach could also be used to investigate whether these individual deviation patterns remain stable across independently collected datasets.
+
+Several evaluation choices could also be examined more systematically. Participant level probabilities were obtained by arithmetic averaging across EEG windows; alternative aggregation rules, including geometric averaging, could be evaluated to determine how sensitive performance is to this choice. The substantial variation observed under five-fold cross-validation and the protocol-dependent changes in model ranking indicate uncertainty in the relative performance of individual models. Future work could therefore assess whether observed differences between models are robust to participant sampling, for example by resampling the paired out-of-sample participant predictions and estimating the uncertainty of the performance difference. Finally, the five FEP-trained cross-validation models were evaluated separately on the external SCZ dataset and their metrics were averaged. Combining their participant level predictions through probability averaging or voting would provide an additional ensemble evaluation and could determine whether aggregation across independently fitted models improves cross-dataset robustness.
+
+
+Together, these directions extend the present work towards stronger cross-dataset validation, more robust model comparison, a better understanding of task specific representation differences, and more individual-level analysis of clinical EEG.
+
+
+\section{Personal Takeaways}
+% style-audit: ignore-begin
+
+This thesis gave me the opportunity to work on a research problem at the intersection of Artificial Intelligence and neuroscience. One of the most valuable lessons was learning how to connect these two areas in a meaningful way. With the guidance of my supervisors, I learned to look beyond model performance and consider how factors such as preprocessing, dataset characteristics, evaluation design, and the clinical task can shape the results. This helped me develop a broader understanding of how AI methods can be applied to neuroscience problems and why their results need to be interpreted in the context of both the data and the application.
+
+The research process also taught me how to develop a broad idea into focused research questions and a structured set of experiments. Reading and comparing previous studies helped me become more critical about methodological choices and more careful about what can reasonably be concluded from experimental results. I also learned that research does not always lead to clear or expected outcomes. Some experiments produced strong results, while others were less consistent, and learning how to understand these differences and draw appropriate conclusions without overclaiming was an important part of the process.
+
+Another important learning experience was managing a long-term research project involving multiple datasets, model configurations, experiments, analyses, and writing tasks. I learned how to plan the work in stages, prioritise tasks, manage dependencies, and adapt the research direction as new results emerged. Regular discussions and feedback from my supervisors also helped me improve the way I justify technical decisions, communicate results, and structure scientific arguments. Overall, the thesis strengthened my ability to approach complex interdisciplinary research problems in a more systematic and independent way.
+
+% style-audit: ignore-end

@@ -1,0 +1,19 @@
+# Model Config — EEGNeX (braindecode)
+
+model_type: "braindecode"
+model_name: "EEGNeX"
+
+model_kwargs:
+  drop_prob: 0.5
+  filter_1: 8
+  filter_2: 32
+  depth_multiplier: 2
+  kernel_block_1_2: 64
+  kernel_block_4: 16
+  dilation_block_4: 2
+  avg_pool_block4: 4
+  kernel_block_5: 16
+  dilation_block_5: 4
+  avg_pool_block5: 8
+  max_norm_conv: 1.0
+  max_norm_linear: 0.25

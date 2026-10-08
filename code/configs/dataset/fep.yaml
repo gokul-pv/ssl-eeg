@@ -1,0 +1,23 @@
+# Dataset Config — First Episode Psychosis (ds003944)
+
+dataset_name: "fep"               # key in DATASET_REGISTRY
+
+dataset_id: "ds003944"
+data_dir: "data"
+save_folder: "L3000_200Hz_EEGPrep_ICA"  # must match configs/preprocess/fep.yaml → save_folder
+sfreq: 200
+
+# Subject split
+cross_val: "mccv"
+ratio_a: 0.6
+ratio_b: 0.8
+
+# DataLoader
+normalize: true
+batch_size: 128
+num_workers: 0
+preload: true
+use_subject_vote: true
+
+# CV settings
+n_folds: 5

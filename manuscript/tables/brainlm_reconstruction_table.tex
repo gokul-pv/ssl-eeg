@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \caption[BrainLM reconstruction quality assessment]{BrainLM reconstruction quality assessment: classification from the input EEG versus from the BrainLM encode$\to$decode output (subject level).}
+  \label{tab:brainlm_reconstruction}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{l cc cc cc}
+    \toprule
+     & \multicolumn{2}{c}{AD} & \multicolumn{2}{c}{FTD} & \multicolumn{2}{c}{FEP} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+     & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ \\
+    \midrule
+    LDA (input EEG) & 91.3\,{\scriptsize$\pm$10.9} & \textbf{94.3\,{\scriptsize$\pm$7.9}} & 77.2\,{\scriptsize$\pm$9.0} & 65.8\,{\scriptsize$\pm$11.6} & 64.4\,{\scriptsize$\pm$10.5} & 58.2\,{\scriptsize$\pm$8.3} \\
+    LDA (reconstructed EEG) & \textbf{95.0\,{\scriptsize$\pm$7.1}} & 89.0\,{\scriptsize$\pm$9.0} & \textbf{89.7\,{\scriptsize$\pm$7.5}} & \textbf{81.7\,{\scriptsize$\pm$10.7}} & \textbf{72.2\,{\scriptsize$\pm$6.0}} & \textbf{65.1\,{\scriptsize$\pm$11.2}} \\
+    \midrule
+    ATCNet (input EEG) & 92.4\,{\scriptsize$\pm$9.5} & \textbf{83.2\,{\scriptsize$\pm$7.3}} & 87.5\,{\scriptsize$\pm$10.4} & \textbf{71.0\,{\scriptsize$\pm$25.5}} & 62.8\,{\scriptsize$\pm$5.6} & \textbf{56.5\,{\scriptsize$\pm$4.6}} \\
+    ATCNet (reconstructed EEG) & \textbf{94.1\,{\scriptsize$\pm$7.8}} & 80.7\,{\scriptsize$\pm$6.1} & \textbf{89.1\,{\scriptsize$\pm$8.3}} & 65.0\,{\scriptsize$\pm$14.6} & \textbf{78.2\,{\scriptsize$\pm$5.0}} & 51.1\,{\scriptsize$\pm$6.3} \\
+    \bottomrule
+  \end{tabular}%
+  }
+  \\[3pt]
+  \begin{minipage}{\linewidth}\footnotesize\raggedright
+    AD: Alzheimer's disease; FTD: frontotemporal dementia; FEP: first-episode psychosis; all versus healthy controls. Reconstructed EEG is the BrainLM full-autoencoder output (mask ratio\,=\,0) of the same input, with the classifier retrained on it. Values are subject level $\times 100$. \textbf{Bold}: better of the two rows for that classifier.
+  \end{minipage}
+\end{table}

@@ -1,0 +1,54 @@
+# Preprocessing Config — ds003478 (MDD vs Healthy Controls)
+
+dataset_id: "ds003478"
+
+# Paths
+raw_data_path: "/mnt/datasets_v7/gokul/EEGData/ds003478"  # BIDS root
+
+# Output
+data_dir: "data"
+save_folder: "L3000_200Hz_EEGPrep_ICA_full"
+
+# Resting-state segment selection
+resting_state: "full"
+
+# Windowing
+seg_len: 3000     # window size in samples (15 s × 200 Hz)
+overlap: 0        # no overlap
+
+# Scaling
+scale: 1.0e+6     # V → µV
+
+# Bandpass filter
+l_freq: 0.5
+h_freq: 45.0
+
+# Notch filter
+notch_freq: 60.0
+
+# EEGPrep
+eegprep: true
+eegprep_resample_to: 200
+eegprep_burst_cutoff: 20
+eegprep_corr_threshold: 0.75
+eegprep_common_avg_ref: true
+
+# ICA
+apply_ica: true
+ica_n_components: 20
+ica_prob_threshold: 0.8
+ica_exclude_labels:
+  - "muscle artifact"
+  - "eye blink"
+  - "heart beat"
+  - "channel noise"
+  - "line noise"
+
+# HAM-D QC thresholds
+hamd_hc_warn_above: 7    # warn if HC subject has hamd >= 7
+hamd_mdd_warn_below: 14  # warn if MDD subject has hamd < 14
+
+# Performance
+drop_last_window: true
+preload: true
+n_jobs: 1

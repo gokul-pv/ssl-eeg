@@ -1,0 +1,47 @@
+# Reconstruction-as-features × FEP vs HC (LDA and ATCNet, original vs reconstructed)
+
+seed: 42
+dataset_config: configs/dataset/fep_cross.yaml
+model_config: configs/model/atcnet_bd.yaml
+mae_model_config: configs/model/brainlm_eeg.yaml
+pretrained_checkpoint: outputs/checkpoints/pretrain/brainlmeeg/best_pretrain_full.pth
+reconstruction_mask_ratio: 0.0
+reconstruction_batch_size: 256
+split_save_dir: metadata
+pretrain_seed: 42
+n_folds: 5
+gpu: 0
+normalize: true
+ml_model: lda
+lda_solver: svd
+lda_shrinkage: null
+pca_components: null
+ml_features:
+  domains: [dft, time, dwt, cwt]
+  band_limits:
+  - [0.5, 4.0]
+  - [4.0, 8.0]
+  - [8.0, 13.0]
+  - [13.0, 30.0]
+  - [30.0, 45.0]
+  wavelet: db4
+  cwt_wavelet: morl
+  n_jobs: 4
+train_epochs: 100
+patience: 10
+early_stopping_metric: val_loss
+learning_rate: 0.0005
+weight_decay: 0.0001
+max_grad_norm: 4.0
+batch_size: 128
+warmup_epochs: 0
+num_workers: 0
+use_subject_vote: true
+save_dir: outputs/experiments/reconstruction/fep
+terminal_log_dir: outputs/logs/experiments/reconstruction
+use_wandb: true
+wandb_project: eeg-brainlm-reconstruction
+wandb_entity: null
+wandb_mode: offline
+wandb_dir: outputs/wandb/experiments/reconstruction
+wandb_upload_terminal_log_artifact: true

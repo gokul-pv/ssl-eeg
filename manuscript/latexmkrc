@@ -1,0 +1,16 @@
+# latexmk configuration for the thesis.
+# Read automatically by latexmk when run from this directory, and by the
+# VS Code LaTeX Workshop recipe, so both toolchains build identically.
+#
+#   latexmk -pdf main.tex        full build      -> build/main.pdf
+#   latexmk -pdf -pvc main.tex   rebuild on save
+#   latexmk -pdf preview.tex     single chapter  -> build/preview.pdf
+#   latexmk -c                   clean aux, keep pdf
+#   latexmk -C                   clean everything
+
+$pdf_mode   = 1;        # pdflatex
+$bibtex_use = 2;        # run biber, and clean .bbl on -C
+$out_dir    = 'build';  # pdf and all aux artifacts land here
+$aux_dir    = 'build';  # same dir as $out_dir, so no $emulate_aux juggling
+
+$pdf_previewer = 'open -a Preview';

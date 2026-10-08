@@ -1,0 +1,161 @@
+% !TEX root = ../main.tex
+% =============================================================================
+% APPENDIX - implementation settings needed to reproduce the downstream
+% experiments.
+%
+% The Appendix heading and numbering are defined in main.tex.
+% This file starts at the section level.
+%
+% VOICE: impersonal and concise.
+% =============================================================================
+
+This appendix provides the implementation settings used for the downstream
+experiments reported in Chapter~\ref{ch:results}.
+
+\section{Downstream Adaptation}\label{app:adaptation}
+
+Table~\ref{tab:app_adaptation} shows the optimisation settings used for
+linear probing and finetuning. Within each adaptation setting, the same
+hyperparameters were used for all four downstream tasks, all three
+BrainLM-EEG variants, and all evaluation protocols.
+
+\begin{table}[htbp]
+    \centering
+    \caption[Downstream adaptation settings]{Optimisation settings for linear
+    probing and finetuning.}
+    \label{tab:app_adaptation}
+
+    \begin{tabularx}{\textwidth}{
+        >{\raggedright\arraybackslash}p{4.6cm}
+        >{\raggedright\arraybackslash}X
+        >{\raggedright\arraybackslash}X}
+        \toprule
+        \textbf{Setting} &
+        \textbf{Linear probing} &
+        \textbf{Finetuning} \\
+        \midrule
+
+        Encoder parameters & Frozen & Updated \\
+        Learning rate & \(1\times10^{-3}\) & \(5\times10^{-5}\) \\
+        Weight decay & \(0\) & \(0.05\) \\
+        Learning rate schedule & Cosine decay &
+        Linear warmup over 10 epochs, followed by cosine decay \\
+        Maximum epochs & 50 & 50 \\
+        Early stopping patience & 10 & 10 \\
+        Batch size & 128 & 128 \\
+        Gradient clipping (maximum norm) & \(1.0\) & \(1.0\) \\
+
+        \bottomrule
+    \end{tabularx}
+    \\[3pt]
+    \begin{minipage}{\linewidth}\footnotesize\raggedright
+        All runs used the AdamW optimiser
+        \parencite{loshchilovDecoupledWeightDecay2019}, a random seed of 42,
+        and cross-entropy loss. Early stopping and checkpoint selection were
+        based on validation loss.
+    \end{minipage}
+\end{table}
+
+The classification head described in Section~\ref{sec:m_lp_ft} was a
+three-layer perceptron:
+
+\begin{center}
+CLS \(\rightarrow\) Linear(512, 1024) \(\rightarrow\) GELU \(\rightarrow\)
+Dropout(0.1) \(\rightarrow\)\\
+Linear(1024, 1024) \(\rightarrow\) GELU \(\rightarrow\) Dropout(0.1)
+\(\rightarrow\) Linear(1024, 2)
+\end{center}
+
+The same classification head was used in both settings.
+The encoder remained frozen during linear probing and was updated during finetuning.
+
+All downstream classification results were obtained from the CLS token.
+The layer-wise analysis in Section~\ref{sec:m_layer_probe} was the only
+exception. For this analysis, the patch token representations from each
+encoder stage were averaged, and the CLS token was excluded. Therefore,
+the results in Section~\ref{sec:r_layers} are not directly comparable with
+the CLS-based results reported elsewhere.
+
+\section{Electrode Montage and Coordinates}\label{app:montage}
+
+Channel names were standardised to the current electrode nomenclature.
+The legacy labels T3, T4, T5, and T6 were mapped to T7, T8, P7, and P8,
+respectively.
+
+The channels were ordered from anterior to posterior and from left to right
+within each row. This order was kept fixed so that each spatiotemporal token
+corresponded to the correct electrode.
+
+The azimuth and elevation angles used by BrainLM-EEG-RoPE
+(Section~\ref{sec:m_rope}) were derived from the standard 10-20 electrode
+coordinates provided by \texttt{MNE-Python}. The coordinates use a
+head-centred Cartesian system. The \(x\) axis points towards the right ear,
+the \(y\) axis points towards the nasion, and the \(z\) axis points upwards.
+
+Each electrode position was projected onto the unit sphere. Azimuth and
+elevation were then calculated as
+
+\begin{equation}
+    \theta_c = \operatorname{atan2}(x_c, y_c),
+    \qquad
+    \varphi_c = \arcsin(z_c)
+    \label{eq:app_rope_angles}
+\end{equation}
+
+Table~\ref{tab:app_montage} lists the electrode order and the corresponding
+coordinates.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \setlength{\tabcolsep}{4pt}
+    \caption[Common electrode montage and coordinates]{The 19 common electrodes
+    in the order used by the model, with their spherical coordinates.}
+    \label{tab:app_montage}
+
+    \begin{tabular}{c l c c @{\hspace{2em}} c l c c}
+        \toprule
+        \multirow{2}{*}{\textbf{Index}} &
+        \multirow{2}{*}{\textbf{Electrode}} &
+        \textbf{Azimuth} &
+        \textbf{Elevation} &
+        \multirow{2}{*}{\textbf{Index}} &
+        \multirow{2}{*}{\textbf{Electrode}} &
+        \textbf{Azimuth} &
+        \textbf{Elevation} \\
+
+        & & \(\theta_c\) & \(\varphi_c\) &
+        & & \(\theta_c\) & \(\varphi_c\) \\
+        \midrule
+
+         0 & Fp1 & \(-0.337\) & \(-0.078\) & 10 & C4 & \(+1.732\) & \(+0.752\) \\
+         1 & Fp2 & \(+0.338\) & \(-0.079\) & 11 & T8 & \(+1.746\) & \(-0.109\) \\
+         2 & F7  & \(-1.027\) & \(-0.138\) & 12 & P7 & \(-2.363\) & \(-0.024\) \\
+         3 & F3  & \(-0.758\) & \(+0.523\) & 13 & P3 & \(-2.549\) & \(+0.532\) \\
+         4 & Fz  & \(+0.005\) & \(+0.849\) & 14 & Pz & \(+3.138\) & \(+0.795\) \\
+         5 & F4  & \(+0.762\) & \(+0.498\) & 15 & P4 & \(+2.525\) & \(+0.531\) \\
+         6 & F8  & \(+1.024\) & \(-0.139\) & 16 & P8 & \(+2.356\) & \(-0.025\) \\
+         7 & T7  & \(-1.759\) & \(-0.109\) & 17 & O1 & \(-2.886\) & \(+0.076\) \\
+         8 & C3  & \(-1.747\) & \(+0.770\) & 18 & O2 & \(+2.882\) & \(+0.076\) \\
+         9 & Cz  & \(+3.098\) & \(+1.480\) &    &    &            &            \\
+
+        \bottomrule
+    \end{tabular}
+    % No blank line before \\[3pt] -- see the note on the table above.
+    \\[3pt]
+    \begin{minipage}{\linewidth}\footnotesize\raggedright
+        Azimuth \(\theta_c\) and elevation \(\varphi_c\) are given in radians.
+        These values were used directly as the scalar positions in
+        Equation~\ref{eq:rope1d}. Rotation frequencies used the base
+        \(b=10^{4}\), without additional rescaling.
+    \end{minipage}
+\end{table}
+
+\FloatBarrier
+
+\section{Code Availability}\label{app:code}
+
+The implementation, configuration files, and scripts used in this thesis are
+publicly available at \url{https://github.com/gokul-pv/ssl-eeg}.
+
+% TODO: cite a tagged release or commit hash for the final thesis version.

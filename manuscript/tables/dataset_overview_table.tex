@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \caption[Overview of the resting-state EEG datasets]{Acquisition characteristics of the seven resting-state EEG datasets.}
+  \label{tab:dataset_overview}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{l l l l c c c c}
+    \toprule
+    \textbf{Dataset} & \textbf{Accession} & \textbf{Stage} & \textbf{Participant groups} & \textbf{Ch.} & \shortstack{\textbf{Frequency}\\\textbf{(Hz)}} & \textbf{Cond.} & \textbf{Dur.\ (min)} \\
+    \midrule
+    DVS & ds005385 & Pretraining & 542 HC & 64 & 1000 & EO, EC & 3.1 \\
+    SRM & ds003775 & Pretraining & 111 HC & 64 & 1024 & EC & 4.0 \\
+    LEMON & -- & Pretraining & 215 HC & 61 & 2500 & EO & 17.4 \\
+    ADFTD & ds004504 & Downstream & 36 AD, 23 FTD, 29 HC & 19 & 500 & EC & 13.4 \\
+    FEP & ds003944 & Downstream & 47 FEP, 30 HC & 61 & 1000 & EO & 5.1 \\
+    MDD & ds003478 & Downstream & 32 MDD, 90 HC & 64 & 500 & EO, EC & 5.8 \\
+    SCZ & -- & External test & 30 SCZ, 47 HC & 64 & 1000 & EC & 2.2 \\
+    \bottomrule
+  \end{tabular}%
+  }
+  \\[3pt]
+  \begin{minipage}{\linewidth}\footnotesize\raggedright
+    Participant groups are the participants retained after preprocessing, before the pretraining-reserve split (Figure~\ref{fig:dataset_partitioning}). Ch.: EEG channels. Cond.: recording condition, eyes open (EO) or eyes closed (EC). Dur.: mean recording length. HC: healthy control. AD: Alzheimer's disease. FTD: frontotemporal dementia. FEP: first-episode psychosis. MDD: major depressive disorder. SCZ: schizophrenia.
+  \end{minipage}
+\end{table}

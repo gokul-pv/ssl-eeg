@@ -1,0 +1,19 @@
+# BrainLM-SphereRoPE architecture config
+
+model_name: "BrainLMSphereRoPE"
+
+n_times: 3000         # 15 s × 200 Hz
+patch_size: 200       # 1-second patches at 200 Hz
+mask_ratio: 0.75      # 75% random masking
+norm_pix_loss: false
+
+encoder_dim: 512
+encoder_depth: 4
+encoder_heads: 4      # head_dim = 512/4 = 128 → 32 az pairs + 32 el pairs per head
+
+decoder_dim: 512
+decoder_depth: 2
+decoder_heads: 4
+
+mlp_ratio: 4.0
+dropout: 0.0

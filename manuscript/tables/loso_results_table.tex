@@ -1,0 +1,36 @@
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \caption[Leave-one-subject-out evaluation]{Leave-one-subject-out (LOSO) evaluation on four clinical EEG tasks.}
+  \label{tab:loso}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{l cc cc cc cc}
+    \toprule
+     & \multicolumn{2}{c}{AD} & \multicolumn{2}{c}{FTD} & \multicolumn{2}{c}{FEP} & \multicolumn{2}{c}{MDD} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+     & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ \\
+    \midrule
+    LDA & 92.2 & 85.8 & 85.0 & 78.4 & \textbf{78.9} & \underline{66.0} & 34.2 & 57.2 \\
+    SVM & 93.4 & 85.3 & 75.8 & 71.3 & 65.6 & 55.8 & 30.7 & 50.5 \\
+    XGBoost & 94.9 & 82.7 & 77.1 & 62.9 & 67.0 & 59.5 & 38.6 & 55.1 \\
+    \midrule
+    EEGNeX & 92.9 & 83.1 & 86.9 & 80.2 & 63.1 & 50.5 & \underline{41.9} & 54.1 \\
+    EEGConformer & 96.8 & 86.6 & \underline{95.0} & 77.8 & 60.7 & 44.1 & 34.7 & \underline{58.8} \\
+    ATCNet & 92.8 & \underline{87.0} & 89.2 & 79.0 & \textbf{78.9} & \textbf{68.4} & 37.4 & 54.6 \\
+    \midrule
+    LaBraM (LP) & 93.1 & 85.3 & 88.7 & 79.6 & 54.4 & 43.9 & \textbf{42.5} & 53.2 \\
+    CBraMod (LP) & 95.9 & 85.7 & 80.9 & 75.2 & 56.5 & 43.3 & 34.4 & 50.5 \\
+    REVE (LP) & \textbf{98.0} & \textbf{90.9} & \textbf{95.5} & 91.7 & 62.2 & 45.4 & 37.7 & \textbf{61.4} \\
+    \midrule
+    BrainLM-EEG (LP) & 94.7 & 81.4 & 86.2 & 81.8 & 68.3 & 61.1 & 32.9 & 49.5 \\
+    BrainLM-EEG-RoPE (LP) & 96.1 & \underline{87.0} & 92.3 & \textbf{92.9} & \underline{68.7} & 43.9 & 36.3 & 51.1 \\
+    BrainLM-EEG-Microstate (LP) & \underline{96.9} & 85.3 & 94.6 & \underline{92.3} & 62.8 & 56.9 & 37.9 & 51.6 \\
+    \bottomrule
+  \end{tabular}%
+  }
+  \\[3pt]
+  \begin{minipage}{\linewidth}\footnotesize\raggedright
+    AD: Alzheimer's disease; FTD: frontotemporal dementia; FEP: first-episode psychosis; MDD: major depressive disorder; all versus healthy controls. LP: linear probe. Values are subject level $\times 100$. \textbf{Bold}: best per column; \underline{underline}: second best.
+  \end{minipage}
+\end{table}

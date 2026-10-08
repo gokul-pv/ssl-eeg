@@ -1,0 +1,31 @@
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \caption[Ablation of the pretraining masking objective]{Ablation of the BrainLM-EEG pretraining objective: masking ratio (upper block, random masking) and masking strategy (lower block, 75\% masking ratio), under linear probing.}
+  \label{tab:ablation_indomain}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{l cc cc cc}
+    \toprule
+     & \multicolumn{2}{c}{AD} & \multicolumn{2}{c}{FTD} & \multicolumn{2}{c}{FEP} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+     & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ \\
+    \midrule
+    Random, 20\% & 86.2\,{\scriptsize$\pm$16.1} & 66.0\,{\scriptsize$\pm$9.6} & \underline{88.5\,{\scriptsize$\pm$7.1}} & 69.8\,{\scriptsize$\pm$10.9} & 62.1\,{\scriptsize$\pm$13.1} & 45.9\,{\scriptsize$\pm$5.6} \\
+    Random, 50\% & 89.7\,{\scriptsize$\pm$11.5} & 74.0\,{\scriptsize$\pm$15.9} & 81.1\,{\scriptsize$\pm$6.5} & 60.5\,{\scriptsize$\pm$12.9} & 67.6\,{\scriptsize$\pm$10.7} & 45.8\,{\scriptsize$\pm$8.3} \\
+    Random, 75\%$^{\star}$ & \underline{92.6\,{\scriptsize$\pm$8.0}} & \textbf{85.2\,{\scriptsize$\pm$4.0}} & 82.8\,{\scriptsize$\pm$6.5} & \underline{74.7\,{\scriptsize$\pm$14.3}} & \textbf{73.6\,{\scriptsize$\pm$15.4}} & \underline{54.8\,{\scriptsize$\pm$9.9}} \\
+    Random, 90\% & \textbf{93.0\,{\scriptsize$\pm$6.6}} & \underline{83.2\,{\scriptsize$\pm$6.3}} & \textbf{91.0\,{\scriptsize$\pm$9.0}} & \textbf{75.7\,{\scriptsize$\pm$13.3}} & \underline{68.9\,{\scriptsize$\pm$6.3}} & \textbf{61.5\,{\scriptsize$\pm$4.0}} \\
+    \midrule
+    Random (channel $\times$ time)$^{\star}$ & \underline{92.6\,{\scriptsize$\pm$8.0}} & \underline{85.2\,{\scriptsize$\pm$4.0}} & \underline{82.8\,{\scriptsize$\pm$6.5}} & \textbf{74.7\,{\scriptsize$\pm$14.3}} & \textbf{73.6\,{\scriptsize$\pm$15.4}} & \textbf{54.8\,{\scriptsize$\pm$9.9}} \\
+    Whole channels & \textbf{95.4\,{\scriptsize$\pm$4.8}} & \textbf{89.3\,{\scriptsize$\pm$8.1}} & \textbf{94.8\,{\scriptsize$\pm$6.4}} & \underline{74.0\,{\scriptsize$\pm$14.2}} & \underline{65.2\,{\scriptsize$\pm$9.5}} & \underline{53.5\,{\scriptsize$\pm$4.6}} \\
+    Whole time patches & 89.5\,{\scriptsize$\pm$13.2} & 84.0\,{\scriptsize$\pm$10.9} & 81.1\,{\scriptsize$\pm$11.4} & 63.7\,{\scriptsize$\pm$14.7} & 55.7\,{\scriptsize$\pm$4.2} & 48.3\,{\scriptsize$\pm$3.4} \\
+    Brain regions & 89.3\,{\scriptsize$\pm$11.4} & 82.8\,{\scriptsize$\pm$14.0} & 79.2\,{\scriptsize$\pm$3.4} & 67.3\,{\scriptsize$\pm$10.8} & 62.4\,{\scriptsize$\pm$4.7} & 52.1\,{\scriptsize$\pm$5.5} \\
+    Last time patches (causal) & 91.0\,{\scriptsize$\pm$9.2} & 75.2\,{\scriptsize$\pm$13.2} & 79.4\,{\scriptsize$\pm$7.2} & 63.2\,{\scriptsize$\pm$14.2} & 52.2\,{\scriptsize$\pm$3.8} & 50.0\,{\scriptsize$\pm$0.0} \\
+    \bottomrule
+  \end{tabular}%
+  }
+  \\[3pt]
+  \begin{minipage}{\linewidth}\footnotesize\raggedright
+    AD: Alzheimer's disease; FTD: frontotemporal dementia; FEP: first-episode psychosis; all versus healthy controls. LP: linear probe. $^{\star}$: canonical setting (random masking, 75\%), the configuration used for BrainLM-EEG in the main tables. Best and second best are ranked within each block. Values are subject level $\times 100$. \textbf{Bold}: best per column; \underline{underline}: second best.
+  \end{minipage}
+\end{table}

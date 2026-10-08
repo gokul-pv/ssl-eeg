@@ -1,0 +1,47 @@
+# linear SVM on handcrafted features × FEP vs HC — loso
+
+seed: 42
+
+# CV strategy
+protocol: "loso"              # rolling (five-fold CV) | loso | full
+
+dataset_config: "configs/dataset/fep_cross.yaml"
+
+# Model
+ml_model: "svm"
+
+svm_kernel: "linear"
+svm_C: 1.0
+svm_gamma: "scale"
+
+pca_components: 50
+
+# Feature extraction
+ml_features:
+  domains: ["dft", "time", "dwt", "cwt"]  # any subset of: dft, cwt, dwt, time
+  band_limits:
+    - [0.5,  4.0]    # delta
+    - [4.0,  8.0]    # theta
+    - [8.0,  13.0]   # alpha
+    - [13.0, 30.0]   # beta
+    - [30.0, 45.0]   # gamma
+  wavelet: "db4"
+  cwt_wavelet: "morl"
+  n_jobs: 4
+
+# Checkpoint
+save_dir: "outputs/checkpoints/train_ml"
+
+normalize: false
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-loso-comparison"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/ds003944/"
+wandb_upload_terminal_log_artifact: true
+
+# Terminal/File Logs
+terminal_log_dir: "outputs/logs/ds003944/baseline_ml"

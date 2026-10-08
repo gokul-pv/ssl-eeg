@@ -1,0 +1,8 @@
+# Model Config — REVE (braindecode) with Hugging Face pretrained weights
+
+model_type: "braindecode"
+model_name: "REVE"
+
+pretrained_repo_id: "brain-bzh/reve-base"
+
+model_kwargs: {}

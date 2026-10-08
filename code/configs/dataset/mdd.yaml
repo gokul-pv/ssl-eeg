@@ -1,0 +1,23 @@
+# Dataset Config — MDD vs HC (ds003478)
+
+dataset_name: "mdd"
+
+dataset_id: "ds003478"
+data_dir: "data"
+save_folder: "L3000_200Hz_EEGPrep_ICA_full"  # must match configs/preprocess/mdd.yaml
+sfreq: 200
+
+# Subject split
+cross_val: "mccv"
+ratio_a: 0.6
+ratio_b: 0.8
+
+# DataLoader
+normalize: true
+batch_size: 128
+num_workers: 0
+preload: true
+use_subject_vote: true
+
+# CV settings
+n_folds: 5

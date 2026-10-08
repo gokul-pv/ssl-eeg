@@ -1,0 +1,34 @@
+# FEP → SCZ cross-dataset evaluation — eegnex
+
+seed: 42
+gpu: 0
+
+dataset_config: "configs/dataset/scz.yaml"
+model_config:   "configs/model/eegnex_bd.yaml"
+
+
+source_dataset_id: "ds003944"
+
+# Evaluation
+use_subject_vote: true
+class_names: ["HC", "SZ"]
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-cross-eval"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/scz/"
+wandb_data_dir: "outputs/wandb/scz/_wandb_data"
+wandb_upload_terminal_log_artifact: true
+
+# Terminal/File Logs
+terminal_log_dir: "outputs/logs/scz/eval"
+
+# Confusion matrix
+figures_dir: "outputs/figures/scz/eval"
+
+# Checkpoints
+checkpoint_path: "outputs/checkpoints/train_dl/eegnex/ds003944/fep/seed42/full/best.pth"          # model trained on all FEP participants
+rolling_checkpoint_dir: "outputs/checkpoints/train_dl/eegnex/ds003944/fep/seed42"   # five-fold CV models (run1 … run5)

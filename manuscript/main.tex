@@ -1,0 +1,90 @@
+% Magda Gregorova, 2025-01-10
+% Non-binding template for MSc thesis in THWS/MAI submitted to Magda Gregorova
+% The template is provided "as is" without any guarantees.
+% You are free to use and modify as you see fit.
+
+\documentclass[12pt,twoside=false,a4paper,parskip,
+               listof=totoc,bibliography=totoc]{scrbook} % koma-script book environment for cleaner typesetting and more flexibility
+% \documentclass[12pt,twoside,a4paper,parskip,openright]{scrbook} % use this for double-sided printing
+
+%% ========== preamble ========== %%
+
+\input{package_list.tex}
+
+% biblatex settings for better referencing
+\usepackage[backend=biber, % more flexible than bibtex
+            citestyle=authoryear,
+            style=authoryear,
+            maxcitenames = 2,
+            maxbibnames = 10,
+            date = year,
+            doi=false,
+            isbn=false,
+            url=false,
+            eprint=false
+            ]{biblatex}
+\DeclareDelimFormat{nameyeardelim}{\addcomma\space} % comma to separate name and year in cite command
+
+\appto{\bibsetup}{\emergencystretch=3em}
+\addbibresource{bibliography/refs.bib}
+% \addbibresource{Write.bib} % Zotero export -- do not move
+
+\input{custom_commands.tex}
+
+%% ========== main part ========== %%
+
+\begin{document}
+
+\frontmatter
+
+\input{chapters/title_page}
+
+\input{chapters/abstract}
+
+\tableofcontents
+
+\mainmatter
+
+\input{chapters/ch_intro}
+
+\input{chapters/ch_background}
+
+\input{chapters/ch_related_work}
+
+\input{chapters/ch_method}
+
+\input{chapters/ch_results}
+
+\input{chapters/ch_discussion}
+
+\input{chapters/ch_conclusion}
+
+% ch_formatting.tex and ch_other.tex are the original template demo/placeholder
+% chapters. They are intentionally NOT included in the build; keep ch_formatting.tex
+% around as a private LaTeX cheat-sheet while writing.
+
+\backmatter
+% \addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+
+\listoffigures
+% \addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables
+
+\input{chapters/abbreviations}
+% \input{chapters/notation}
+
+\appendix
+\makeatletter\@mainmattertrue\makeatother
+\setcounter{chapter}{1}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\addchap{Appendix}
+
+\input{chapters/appendix}
+
+% this you need to sign and include the signed pdf
+\input{chapters/declaration_oath}
+
+\end{document}

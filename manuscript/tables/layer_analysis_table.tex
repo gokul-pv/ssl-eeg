@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \caption[Layer-wise linear probe analysis]{Layer-wise linear probe analysis of BrainLM-EEG on frozen representations, pooling the mean over patch tokens (subject level).}
+  \label{tab:layer_analysis_mean}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{l cc cc cc cc}
+    \toprule
+     & \multicolumn{2}{c}{AD} & \multicolumn{2}{c}{FTD} & \multicolumn{2}{c}{FEP} & \multicolumn{2}{c}{MDD} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+     & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ \\
+    \midrule
+    Layer 0 & 64.9\,{\scriptsize$\pm$14.4} & 50.0\,{\scriptsize$\pm$0.0} & 68.0\,{\scriptsize$\pm$9.7} & 50.0\,{\scriptsize$\pm$0.0} & 62.2\,{\scriptsize$\pm$14.2} & 50.0\,{\scriptsize$\pm$0.0} & \textbf{65.8\,{\scriptsize$\pm$12.3}} & \textbf{50.0\,{\scriptsize$\pm$0.0}} \\
+    Layer 1 & 85.2\,{\scriptsize$\pm$10.7} & \underline{84.8\,{\scriptsize$\pm$11.0}} & \underline{90.0\,{\scriptsize$\pm$7.4}} & \textbf{78.5\,{\scriptsize$\pm$12.3}} & 65.1\,{\scriptsize$\pm$7.3} & \underline{51.8\,{\scriptsize$\pm$6.8}} & \underline{58.0\,{\scriptsize$\pm$8.2}} & \textbf{50.0\,{\scriptsize$\pm$0.0}} \\
+    Layer 2 & \underline{91.9\,{\scriptsize$\pm$11.0}} & 83.3\,{\scriptsize$\pm$15.3} & \textbf{92.8\,{\scriptsize$\pm$6.8}} & \underline{70.5\,{\scriptsize$\pm$11.6}} & 68.4\,{\scriptsize$\pm$13.4} & \textbf{58.8\,{\scriptsize$\pm$11.5}} & 51.0\,{\scriptsize$\pm$7.0} & \textbf{50.0\,{\scriptsize$\pm$0.0}} \\
+    Layer 3 & \textbf{95.5\,{\scriptsize$\pm$4.2}} & \textbf{87.0\,{\scriptsize$\pm$7.3}} & 86.5\,{\scriptsize$\pm$9.0} & 60.2\,{\scriptsize$\pm$9.5} & \textbf{71.0\,{\scriptsize$\pm$10.6}} & 51.1\,{\scriptsize$\pm$5.3} & 52.5\,{\scriptsize$\pm$7.4} & 48.6\,{\scriptsize$\pm$1.7} \\
+    Final & 91.2\,{\scriptsize$\pm$11.7} & 78.3\,{\scriptsize$\pm$10.6} & 81.6\,{\scriptsize$\pm$14.2} & 65.5\,{\scriptsize$\pm$24.2} & \underline{68.4\,{\scriptsize$\pm$9.0}} & 50.5\,{\scriptsize$\pm$5.3} & 52.9\,{\scriptsize$\pm$6.5} & \underline{49.3\,{\scriptsize$\pm$1.4}} \\
+    \bottomrule
+  \end{tabular}%
+  }
+  \\[3pt]
+  \begin{minipage}{\linewidth}\footnotesize\raggedright
+    AD: Alzheimer's disease; FTD: frontotemporal dementia; FEP: first-episode psychosis; MDD: major depressive disorder; all versus healthy controls. Layer 0: patch embedding; Layers 1 to 3: transformer blocks; Final: encoder output (last block with final norm). Values are subject level $\times 100$. \textbf{Bold}: best per column; \underline{underline}: second best.
+  \end{minipage}
+\end{table}

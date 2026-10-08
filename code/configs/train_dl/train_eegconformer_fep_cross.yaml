@@ -1,0 +1,36 @@
+# EEGConformer (supervised, from scratch) × FEP vs HC — rolling
+
+seed: 42
+gpu: 0
+
+dataset_config: "configs/dataset/fep_cross.yaml"
+model_config: "configs/model/eegconformer_bd.yaml"
+
+# Training
+train_epochs: 100
+patience: 10
+early_stopping_metric: "val_loss"  # "val_loss" (minimize) or "val_f1" (maximize)
+learning_rate: 1.0e-4
+weight_decay: 1.0e-4
+max_grad_norm: 4.0
+log_interval: 50
+log_batch: true
+
+# Checkpoint
+save_dir: "outputs/checkpoints/train_dl"
+
+protocol: "rolling"              # rolling (five-fold CV) | loso | full
+n_folds: 5
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-baselines"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null   # auto-generated if null
+wandb_mode: "offline"  # "online" | "offline" | "disabled"
+wandb_dir: "outputs/wandb/ds003944/"
+wandb_data_dir: "outputs/wandb/ds003944/_wandb_data"
+wandb_upload_terminal_log_artifact: true
+
+# Terminal/File Logs
+terminal_log_dir: "outputs/logs/ds003944/train"

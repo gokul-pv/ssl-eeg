@@ -1,0 +1,114 @@
+{
+  "dataset_id": "ds003944",
+  "seed": 42,
+  "reserve_subject_ids": [
+    2018,
+    2025,
+    2073,
+    2081,
+    2089,
+    2093,
+    2122,
+    2134,
+    2135,
+    2137,
+    2138,
+    2171,
+    2193,
+    2197,
+    2214
+  ],
+  "reserve_subjects": [
+    {
+      "pid": 2018,
+      "subject_ids": [
+        "sub-2018"
+      ]
+    },
+    {
+      "pid": 2025,
+      "subject_ids": [
+        "sub-2025"
+      ]
+    },
+    {
+      "pid": 2073,
+      "subject_ids": [
+        "sub-2073"
+      ]
+    },
+    {
+      "pid": 2081,
+      "subject_ids": [
+        "sub-2081"
+      ]
+    },
+    {
+      "pid": 2089,
+      "subject_ids": [
+        "sub-2089"
+      ]
+    },
+    {
+      "pid": 2093,
+      "subject_ids": [
+        "sub-2093"
+      ]
+    },
+    {
+      "pid": 2122,
+      "subject_ids": [
+        "sub-2122"
+      ]
+    },
+    {
+      "pid": 2134,
+      "subject_ids": [
+        "sub-2134"
+      ]
+    },
+    {
+      "pid": 2135,
+      "subject_ids": [
+        "sub-2135"
+      ]
+    },
+    {
+      "pid": 2137,
+      "subject_ids": [
+        "sub-2137"
+      ]
+    },
+    {
+      "pid": 2138,
+      "subject_ids": [
+        "sub-2138"
+      ]
+    },
+    {
+      "pid": 2171,
+      "subject_ids": [
+        "sub-2171"
+      ]
+    },
+    {
+      "pid": 2193,
+      "subject_ids": [
+        "sub-2193",
+        "sub-2193A"
+      ]
+    },
+    {
+      "pid": 2197,
+      "subject_ids": [
+        "sub-2197"
+      ]
+    },
+    {
+      "pid": 2214,
+      "subject_ids": [
+        "sub-2214A"
+      ]
+    }
+  ]
+}

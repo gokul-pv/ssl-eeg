@@ -1,0 +1,46 @@
+# ── LaTeX build output (latexmk writes everything into manuscript/build/) ──
+manuscript/build/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# ── Python ─────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ── Data, checkpoints and run outputs (never committed) ────────────────────
+code/data/
+code/outputs/
+code/wandb/
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.npy
+
+# ── Analysis inputs (downloaded W&B exports) and build output ──────────────
+analysis/results_data/downloads/
+analysis/outputs/
+
+# ── Editor / OS / tooling ──────────────────────────────────────────────────
+.DS_Store
+.vscode/
+.idea/
+.claude/
+.env
+.env.*

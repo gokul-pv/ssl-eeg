@@ -1,0 +1,84 @@
+# BrainLM-EEG self-supervised pretraining
+
+model_config: "configs/model/brainlm_eeg.yaml"
+
+# Dataset list
+pretrain_datasets:
+  - dataset_id: "LEMON"
+    split: "train"
+    dataset_config: "configs/dataset/lemon.yaml"
+
+  - dataset_id: "ds003775"
+    split: "train"
+    dataset_config: "configs/dataset/srm.yaml"
+
+  - dataset_id: "ds005385"
+    split: "train"
+    dataset_config: "configs/dataset/dvs.yaml"
+
+  - dataset_id: "ds003944"
+    split: "pretrain_reserve"
+    dataset_config: "configs/dataset/fep.yaml"
+
+  - dataset_id: "ds004504"
+    split: "pretrain_reserve"
+    dataset_config: "configs/dataset/adftd.yaml"
+
+  - dataset_id: "ds003478"
+    split: "pretrain_reserve"
+    dataset_config: "configs/dataset/mdd.yaml"
+
+# Split reproducibility
+pretrain_seed: 42                    # must match seed used in supervised training
+split_save_dir: "metadata"
+
+# Channel handling
+expected_n_times: 3000              # 15 s × 200 Hz; error raised if any recording differs
+normalize: true                      # per-window per-channel z-score normalisation
+
+# Sampling
+pretrain_balanced_sampling: false    # true → WeightedRandomSampler (equal per dataset)
+
+# DataLoader
+batch_size: 512
+num_workers: 32
+persistent_workers: true
+
+# Training schedule
+seed: 42
+gpu: 0
+train_epochs: 500
+patience: 30             # early stopping patience (epochs without val_loss improvement)
+
+base_lr: 1.5e-4          # AdamW base LR (scaled by batch_size/256 at runtime)
+
+weight_decay: 0.05       # AdamW WD — applied to weights only, NOT biases or LayerNorm
+warmup_epochs: 40        # linear LR warmup before cosine decay
+max_grad_norm: 1.0       # gradient clipping (applied after AMP unscale)
+use_amp: false           # mixed precision
+log_interval: 100        # print batch stats every N batches
+log_batch: false         # log per-batch metrics to WandB
+
+# Checkpoint
+save_dir: "outputs/checkpoints/pretrain"
+
+# Linear probe
+linear_probe: true
+probe_interval: 50          # run probe every N epochs
+probe_batch_size: 64
+probe_epochs: 10            # epochs for the probe head
+probe_lr: 1.0e-3            # Adam LR for the linear head
+probe_dataset_config: "configs/dataset/adftd.yaml"
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-ssl-pretrain"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null         # auto-generated if null
+wandb_mode: "offline"        # "online" | "offline" | "disabled"
+wandb_dir: "outputs/wandb/pretrain"
+wandb_data_dir: "outputs/wandb/pretrain/_wandb_data"
+wandb_upload_terminal_log_artifact: true
+
+# Logs
+terminal_log_dir: "outputs/logs/pretrain"

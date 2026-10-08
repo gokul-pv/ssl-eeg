@@ -1,0 +1,24 @@
+# BrainLM-EEG-Microstate architecture config
+
+model_name: "BrainLMMicrostate"
+
+n_times: 3000         # 15 s × 200 Hz
+patch_size: 200       # 1-second patches at 200 Hz
+mask_ratio: 0.75
+norm_pix_loss: false
+
+canonical_maps_path: "metadata/microstates/canonical_maps.npz"
+n_microstate_classes: 4     # A, B, C, D
+n_sub_bins: 8                # 125ms sub-bins per 1s patch (8 * 125ms = 1000ms)
+aux_loss_weight: 0.5         # λ weighting the auxiliary CE loss vs. MSE reconstruction
+
+encoder_dim: 512
+encoder_depth: 4
+encoder_heads: 4
+
+decoder_dim: 512
+decoder_depth: 2
+decoder_heads: 4
+
+mlp_ratio: 4.0
+dropout: 0.0

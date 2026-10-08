@@ -1,0 +1,56 @@
+% !TEX root = ../main.tex
+% Abstract — English + German (write these LAST, once the thesis is stable)
+% Tense: present for aim/scope ("The aim of this thesis is..."), simple past for
+% what was done ("a model was pretrained...").
+
+\section*{Abstract (en)}
+
+Resting-state electroencephalography (EEG) provides a non-invasive measure of brain activity relevant to neurological and psychiatric conditions. However, substantial variability across participants and independently collected datasets limits the generalisability of learned representations. Self-supervised learning offers a way to learn reusable representations directly from unlabelled EEG, yet its utility for resting-state clinical classification and the factors that influence generalisation remain unclear.
+
+This thesis adapts BrainLM, a masked autoencoder originally developed for functional magnetic resonance imaging, to multichannel EEG. Two novel variants investigate complementary representation learning choices: BrainLM-EEG-RoPE incorporates electrode geometry through rotary positional encoding, while BrainLM-EEG-Microstate introduces an auxiliary EEG microstate prediction objective. The models were pretrained on resting-state EEG from six datasets comprising 925 participants and evaluated across four clinical classification tasks against classical, supervised, and other existing pretrained EEG models. Generalisation was assessed both to unseen participants within a dataset and to independently collected data.
+
+The proposed models learned reusable representations that were competitive across clinical tasks and supported strong participant level classification in several settings. Their downstream utility varied with the clinical task, representation design, and evaluation protocol, highlighting the importance of these design choices in self-supervised EEG modelling. Cross-dataset evaluation further revealed a clear distinction between participant level generalisation and robustness to dataset shift, with external transfer remaining difficult across modelling approaches. Overall, the findings support masked self-supervised learning as a viable framework for resting-state EEG representation learning and highlight representation design and external validation as key considerations for developing more generalisable clinical EEG models.
+
+
+
+
+\section*{Abstract (de)}
+% TODO: German translation of the final English abstract. Have a native speaker
+% proofread. (Required at THWS.)
+%
+% The German block is fenced off from tools/style_audit.py: the British-English
+% spelling, ASCII-only and banned-form rules do not apply to German prose. The
+% hyphenation of the embedded English terms IS kept in line with the English
+% chapters (minimum hyphenation, no Durchkopplung) -- but by hand, not by the
+% checker. See STYLE_GUIDE.md section 10.
+% style-audit: ignore-begin
+
+Die Ruhezustands-Elektroenzephalographie (EEG) ermöglicht die nicht-invasive Erfassung von Hirnaktivität, die für die Untersuchung neurologischer und psychiatrischer Erkrankungen von Bedeutung ist. Eine ausgeprägte Variabilität zwischen Teilnehmenden sowie zwischen unabhängig erhobenen Datensätzen erschwert jedoch die Generalisierbarkeit gelernter Repräsentationen. Self-Supervised Learning bietet die Möglichkeit, wiederverwendbare Repräsentationen unmittelbar aus ungelabelten EEG-Daten zu erlernen. In welchem Umfang solche Repräsentationen für die klinische Klassifikation auf Basis von Ruhezustands-EEG geeignet sind und welche Faktoren ihre Generalisierbarkeit beeinflussen, ist bislang nicht abschließend geklärt.
+
+In dieser Arbeit wird BrainLM, ein ursprünglich für die funktionelle Magnetresonanztomographie entwickelter Masked Autoencoder, auf mehrkanaliges EEG übertragen. Zwei neu entwickelte Varianten untersuchen komplementäre Ansätze des Repräsentationslernens: BrainLM-EEG-RoPE berücksichtigt die räumliche Elektrodengeometrie mittels Rotary Positional Encoding, während BrainLM-EEG-Microstate eine zusätzliche Vorhersage von EEG-Mikrozuständen in die Lernaufgabe integriert. Die Modelle wurden auf Ruhezustands-EEG aus sechs Datensätzen mit insgesamt 925 Teilnehmenden vortrainiert und in vier klinischen Klassifikationsaufgaben mit klassischen Verfahren, überwacht trainierten Modellen sowie weiteren vortrainierten EEG-Modellen verglichen. Die Generalisierbarkeit wurde sowohl für bislang ungesehene Teilnehmende innerhalb eines Datensatzes als auch anhand unabhängig erhobener Daten untersucht.
+
+Die vorgeschlagenen Modelle erlernten wiederverwendbare Repräsentationen, die über verschiedene klinische Aufgaben hinweg konkurrenzfähig waren und in mehreren Evaluationsszenarien eine hohe Klassifikationsleistung auf Teilnehmendenebene ermöglichten. Ihre Nutzbarkeit für nachgelagerte Aufgaben variierte in Abhängigkeit von der klinischen Aufgabe, dem Repräsentationsdesign und dem Evaluationsprotokoll und verdeutlicht damit die Bedeutung dieser Designentscheidungen für Self-Supervised Learning mit EEG. Die datensatzübergreifende Evaluation zeigte zudem einen deutlichen Unterschied zwischen der Generalisierung auf ungesehene Teilnehmende und der Robustheit gegenüber Datensatzverschiebungen, wobei der externe Transfer über verschiedene Modellierungsansätze hinweg anspruchsvoll blieb. Insgesamt stützen die Ergebnisse Masked Self-Supervised Learning als einen tragfähigen Ansatz zum Erlernen wiederverwendbarer Repräsentationen aus Ruhezustands-EEG und unterstreichen die Bedeutung des Repräsentationsdesigns und externer Validierung für die Entwicklung besser generalisierbarer klinischer EEG-Modelle.
+
+
+% style-audit: ignore-end
+
+\newpage
+\chapter*{Acknowledgements}
+% TODO: thank supervisor(s), family, friends, compute/infra providers.
+%
+% Personal prose, not thesis prose: first person is correct here, and the
+% supervisors' names carry accents. Fenced off from tools/style_audit.py for
+% the same reason as the German abstract above.
+% style-audit: ignore-begin
+
+I would like to express my sincere gratitude to everyone who supported me during the completion of this thesis.
+
+I would like to thank Prof. Dr. Magda Gregorová and Carl Zeiss Prof. Dr. Thomas Wolfers for their supervision and for the opportunity to work at the intersection of artificial intelligence and neuroscience, with a particular focus on representation learning. Their guidance, feedback, and scientific perspectives contributed greatly to the development of this thesis and to my growth as a researcher.
+
+I would also like to thank Dr. Yanwu Yang for his insightful feedback and suggestions during the course of this work. My thanks also go to Francesco Mallus for providing the EEG datasets used in this thesis.
+
+I am grateful to de.NBI Cloud for providing the computational resources used to conduct the experiments presented in this thesis.
+
+Finally, I would like to thank my family and friends for their continued support throughout my studies. I am especially grateful to Krishna for the constant encouragement, patience, and support throughout the completion of this thesis.
+
+% style-audit: ignore-end

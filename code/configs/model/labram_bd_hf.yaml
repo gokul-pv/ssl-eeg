@@ -1,0 +1,8 @@
+# Model Config - LaBraM (braindecode) with Hugging Face pretrained weights
+
+model_type: "braindecode"
+model_name: "Labram"
+
+pretrained_repo_id: "braindecode/labram-pretrained"
+
+model_kwargs: {}

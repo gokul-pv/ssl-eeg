@@ -1,0 +1,70 @@
+# Masking ablation — strategy_brain_region (BrainLM-EEG pretraining, 200 epochs)
+
+model_config: "configs/model/brainlm_eeg.yaml"
+
+pretrain_datasets:
+  - dataset_id: "LEMON"
+    split: "train"
+    dataset_config: "configs/dataset/lemon.yaml"
+  - dataset_id: "ds003775"
+    split: "train"
+    dataset_config: "configs/dataset/srm.yaml"
+  - dataset_id: "ds005385"
+    split: "train"
+    dataset_config: "configs/dataset/dvs.yaml"
+  - dataset_id: "ds003944"
+    split: "pretrain_reserve"
+    dataset_config: "configs/dataset/fep.yaml"
+  - dataset_id: "ds004504"
+    split: "pretrain_reserve"
+    dataset_config: "configs/dataset/adftd.yaml"
+  - dataset_id: "ds003478"
+    split: "pretrain_reserve"
+    dataset_config: "configs/dataset/mdd.yaml"
+
+pretrain_seed: 42
+split_save_dir: "metadata"
+
+expected_n_times: 3000
+normalize: true
+pretrain_balanced_sampling: false
+
+batch_size: 512
+num_workers: 32
+persistent_workers: true
+
+seed: 42
+gpu: 0
+train_epochs: 200
+patience: 30
+base_lr: 1.5e-4
+weight_decay: 0.05
+warmup_epochs: 40
+max_grad_norm: 1.0
+use_amp: false
+log_interval: 100
+log_batch: false
+
+linear_probe: true
+probe_interval: 50
+probe_batch_size: 64
+probe_epochs: 10
+probe_lr: 1.0e-3
+probe_dataset_config: "configs/dataset/adftd.yaml"
+
+use_wandb: true
+wandb_project: "eeg-ssl-pretrain"
+wandb_entity: null                  # your W&B entity/team
+wandb_mode: "offline"
+wandb_upload_terminal_log_artifact: true
+
+terminal_log_dir: "outputs/logs/pretrain"
+
+# Ablation-specific overrides
+mask_strategy: "brain_region"
+mask_ratio: 0.75
+ablation_name: "strategy_brain_region"
+save_dir: "outputs/checkpoints/pretrain/ablation/strategy_brain_region"
+wandb_dir: "outputs/wandb/pretrain/ablation/strategy_brain_region"
+wandb_data_dir: "outputs/wandb/pretrain/ablation/strategy_brain_region/_wandb_data"
+wandb_run_name: "brainlm_ablation_strategy_brain_region_0.75"

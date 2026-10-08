@@ -1,0 +1,38 @@
+# FEP → SCZ cross-dataset evaluation — brainlm_eeg_rope_ft
+
+seed: 42
+gpu: 0
+
+model_type: "mae_classifier"
+mode: "finetune"
+
+dataset_config: "configs/dataset/scz.yaml"
+model_config:   "configs/model/brainlm_sphere_rope.yaml"
+
+pretrained_encoder_path: "outputs/checkpoints/pretrain/brainlmsphererope/best_pretrain_encoder.pth"
+
+source_dataset_id: "ds003944"
+
+# Evaluation
+use_subject_vote: true
+class_names: ["HC", "SZ"]
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-cross-eval"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/scz/ssl"
+wandb_data_dir: "outputs/wandb/scz/ssl/_wandb_data"
+wandb_upload_terminal_log_artifact: true
+
+# Terminal/File Logs
+terminal_log_dir: "outputs/logs/scz/ssl_eval"
+
+# Confusion matrix
+figures_dir: "outputs/figures/scz/ssl_eval"
+
+# Checkpoints
+checkpoint_path: "outputs/checkpoints/finetune/brainlmsphererope/ds003944/fep/finetune/seed42/full/best.pth"          # model trained on all FEP participants
+rolling_checkpoint_dir: "outputs/checkpoints/finetune/brainlmsphererope/ds003944/fep/finetune/seed42"   # five-fold CV models (run1 … run5)

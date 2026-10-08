@@ -1,0 +1,19 @@
+# BrainLM-EEG architecture
+
+model_name: "BrainLMEEG"
+
+n_times: 3000         # 15 s × 200 Hz
+patch_size: 200       # 1-second patches at 200 Hz
+mask_ratio: 0.75      # 75% random masking
+norm_pix_loss: false  # true: per-patch normalised targets
+
+encoder_dim: 512
+encoder_depth: 4
+encoder_heads: 4
+
+decoder_dim: 512
+decoder_depth: 2
+decoder_heads: 4
+
+mlp_ratio: 4.0
+dropout: 0.0

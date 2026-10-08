@@ -1,0 +1,15 @@
+# Model Config — EEGConformer (braindecode)
+
+model_type: "braindecode"
+model_name: "EEGConformer"
+
+model_kwargs:
+  n_filters_time: 40
+  filter_time_length: 25
+  pool_time_length: 75
+  pool_time_stride: 15
+  num_layers: 6
+  num_heads: 8
+  drop_prob: 0.3
+  att_drop_prob: 0.3
+  final_fc_length: "auto"

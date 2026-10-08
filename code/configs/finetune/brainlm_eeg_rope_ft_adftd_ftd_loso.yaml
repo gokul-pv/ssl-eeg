@@ -1,0 +1,41 @@
+# BrainLM-EEG-RoPE finetuning × ADFTD — FTD vs HC — loso
+
+mode: "finetune"
+
+dataset_config: "configs/dataset/adftd.yaml"
+model_config:   "configs/model/brainlm_sphere_rope.yaml"
+classify_choice: "ftd_vs_hc"
+
+pretrained_encoder_path: "outputs/checkpoints/pretrain/brainlmsphererope/best_pretrain_encoder.pth"
+
+split_save_dir: "metadata"
+pretrain_seed: 42
+
+seed: 42
+protocol: "loso"              # rolling (five-fold CV) | loso | full
+gpu: 0
+train_epochs: 50
+patience: 10
+learning_rate: 5.0e-5
+weight_decay: 0.05
+warmup_epochs: 10
+max_grad_norm: 1.0
+batch_size: 128
+num_workers: 8
+persistent_workers: true
+
+early_stopping_metric: "val_loss"
+use_subject_vote: true
+
+save_dir: "outputs/checkpoints/finetune"
+
+use_wandb: true
+wandb_project: "eeg-loso-comparison"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/finetune"
+wandb_data_dir: "outputs/wandb/finetune/_wandb_data"
+wandb_upload_terminal_log_artifact: true
+
+terminal_log_dir: "outputs/logs/finetune"

@@ -1,0 +1,1091 @@
+{
+  "dataset_id": "LEMON",
+  "seed": 42,
+  "cross_val": "mccv",
+  "task": null,
+  "train_subject_ids": [
+    32301,
+    32302,
+    32303,
+    32304,
+    32305,
+    32306,
+    32310,
+    32311,
+    32312,
+    32313,
+    32314,
+    32315,
+    32316,
+    32317,
+    32318,
+    32319,
+    32320,
+    32321,
+    32322,
+    32325,
+    32326,
+    32328,
+    32330,
+    32331,
+    32332,
+    32333,
+    32334,
+    32336,
+    32338,
+    32339,
+    32340,
+    32341,
+    32342,
+    32343,
+    32344,
+    32345,
+    32346,
+    32347,
+    32348,
+    32349,
+    32350,
+    32351,
+    32352,
+    32353,
+    32354,
+    32355,
+    32356,
+    32358,
+    32360,
+    32362,
+    32363,
+    32365,
+    32366,
+    32367,
+    32368,
+    32369,
+    32370,
+    32371,
+    32373,
+    32374,
+    32375,
+    32376,
+    32377,
+    32378,
+    32379,
+    32380,
+    32381,
+    32382,
+    32383,
+    32385,
+    32386,
+    32387,
+    32388,
+    32389,
+    32390,
+    32391,
+    32392,
+    32393,
+    32394,
+    32395,
+    32396,
+    32397,
+    32398,
+    32399,
+    32400,
+    32401,
+    32402,
+    32403,
+    32405,
+    32406,
+    32407,
+    32408,
+    32409,
+    32410,
+    32411,
+    32413,
+    32414,
+    32415,
+    32416,
+    32417,
+    32418,
+    32419,
+    32420,
+    32421,
+    32422,
+    32423,
+    32424,
+    32425,
+    32426,
+    32427,
+    32428,
+    32429,
+    32430,
+    32431,
+    32432,
+    32435,
+    32436,
+    32438,
+    32439,
+    32440,
+    32441,
+    32442,
+    32444,
+    32446,
+    32448,
+    32449,
+    32450,
+    32451,
+    32452,
+    32453,
+    32454,
+    32455,
+    32456,
+    32457,
+    32458,
+    32460,
+    32462,
+    32463,
+    32464,
+    32465,
+    32466,
+    32467,
+    32468,
+    32469,
+    32470,
+    32471,
+    32473,
+    32474,
+    32475,
+    32476,
+    32477,
+    32478,
+    32479,
+    32480,
+    32481,
+    32483,
+    32484,
+    32485,
+    32486,
+    32487,
+    32489,
+    32490,
+    32491,
+    32492,
+    32493,
+    32494,
+    32495,
+    32496,
+    32497,
+    32501,
+    32502,
+    32503,
+    32504,
+    32505,
+    32506,
+    32507,
+    32508,
+    32509,
+    32510,
+    32511,
+    32512,
+    32513,
+    32514,
+    32515,
+    32516,
+    32517,
+    32518,
+    32521,
+    32522,
+    32523,
+    32525,
+    32526,
+    32528
+  ],
+  "val_subject_ids": [
+    32307,
+    32308,
+    32309,
+    32323,
+    32324,
+    32327,
+    32329,
+    32337,
+    32357,
+    32359,
+    32361,
+    32364,
+    32372,
+    32412,
+    32434,
+    32447,
+    32459,
+    32472,
+    32482,
+    32498,
+    32499,
+    32524
+  ],
+  "test_subject_ids": [],
+  "train_subjects": [
+    {
+      "pid": 32301,
+      "subject_ids": []
+    },
+    {
+      "pid": 32302,
+      "subject_ids": []
+    },
+    {
+      "pid": 32303,
+      "subject_ids": []
+    },
+    {
+      "pid": 32304,
+      "subject_ids": []
+    },
+    {
+      "pid": 32305,
+      "subject_ids": []
+    },
+    {
+      "pid": 32306,
+      "subject_ids": []
+    },
+    {
+      "pid": 32310,
+      "subject_ids": []
+    },
+    {
+      "pid": 32311,
+      "subject_ids": []
+    },
+    {
+      "pid": 32312,
+      "subject_ids": []
+    },
+    {
+      "pid": 32313,
+      "subject_ids": []
+    },
+    {
+      "pid": 32314,
+      "subject_ids": []
+    },
+    {
+      "pid": 32315,
+      "subject_ids": []
+    },
+    {
+      "pid": 32316,
+      "subject_ids": []
+    },
+    {
+      "pid": 32317,
+      "subject_ids": []
+    },
+    {
+      "pid": 32318,
+      "subject_ids": []
+    },
+    {
+      "pid": 32319,
+      "subject_ids": []
+    },
+    {
+      "pid": 32320,
+      "subject_ids": []
+    },
+    {
+      "pid": 32321,
+      "subject_ids": []
+    },
+    {
+      "pid": 32322,
+      "subject_ids": []
+    },
+    {
+      "pid": 32325,
+      "subject_ids": []
+    },
+    {
+      "pid": 32326,
+      "subject_ids": []
+    },
+    {
+      "pid": 32328,
+      "subject_ids": []
+    },
+    {
+      "pid": 32330,
+      "subject_ids": []
+    },
+    {
+      "pid": 32331,
+      "subject_ids": []
+    },
+    {
+      "pid": 32332,
+      "subject_ids": []
+    },
+    {
+      "pid": 32333,
+      "subject_ids": []
+    },
+    {
+      "pid": 32334,
+      "subject_ids": []
+    },
+    {
+      "pid": 32336,
+      "subject_ids": []
+    },
+    {
+      "pid": 32338,
+      "subject_ids": []
+    },
+    {
+      "pid": 32339,
+      "subject_ids": []
+    },
+    {
+      "pid": 32340,
+      "subject_ids": []
+    },
+    {
+      "pid": 32341,
+      "subject_ids": []
+    },
+    {
+      "pid": 32342,
+      "subject_ids": []
+    },
+    {
+      "pid": 32343,
+      "subject_ids": []
+    },
+    {
+      "pid": 32344,
+      "subject_ids": []
+    },
+    {
+      "pid": 32345,
+      "subject_ids": []
+    },
+    {
+      "pid": 32346,
+      "subject_ids": []
+    },
+    {
+      "pid": 32347,
+      "subject_ids": []
+    },
+    {
+      "pid": 32348,
+      "subject_ids": []
+    },
+    {
+      "pid": 32349,
+      "subject_ids": []
+    },
+    {
+      "pid": 32350,
+      "subject_ids": []
+    },
+    {
+      "pid": 32351,
+      "subject_ids": []
+    },
+    {
+      "pid": 32352,
+      "subject_ids": []
+    },
+    {
+      "pid": 32353,
+      "subject_ids": []
+    },
+    {
+      "pid": 32354,
+      "subject_ids": []
+    },
+    {
+      "pid": 32355,
+      "subject_ids": []
+    },
+    {
+      "pid": 32356,
+      "subject_ids": []
+    },
+    {
+      "pid": 32358,
+      "subject_ids": []
+    },
+    {
+      "pid": 32360,
+      "subject_ids": []
+    },
+    {
+      "pid": 32362,
+      "subject_ids": []
+    },
+    {
+      "pid": 32363,
+      "subject_ids": []
+    },
+    {
+      "pid": 32365,
+      "subject_ids": []
+    },
+    {
+      "pid": 32366,
+      "subject_ids": []
+    },
+    {
+      "pid": 32367,
+      "subject_ids": []
+    },
+    {
+      "pid": 32368,
+      "subject_ids": []
+    },
+    {
+      "pid": 32369,
+      "subject_ids": []
+    },
+    {
+      "pid": 32370,
+      "subject_ids": []
+    },
+    {
+      "pid": 32371,
+      "subject_ids": []
+    },
+    {
+      "pid": 32373,
+      "subject_ids": []
+    },
+    {
+      "pid": 32374,
+      "subject_ids": []
+    },
+    {
+      "pid": 32375,
+      "subject_ids": []
+    },
+    {
+      "pid": 32376,
+      "subject_ids": []
+    },
+    {
+      "pid": 32377,
+      "subject_ids": []
+    },
+    {
+      "pid": 32378,
+      "subject_ids": []
+    },
+    {
+      "pid": 32379,
+      "subject_ids": []
+    },
+    {
+      "pid": 32380,
+      "subject_ids": []
+    },
+    {
+      "pid": 32381,
+      "subject_ids": []
+    },
+    {
+      "pid": 32382,
+      "subject_ids": []
+    },
+    {
+      "pid": 32383,
+      "subject_ids": []
+    },
+    {
+      "pid": 32385,
+      "subject_ids": []
+    },
+    {
+      "pid": 32386,
+      "subject_ids": []
+    },
+    {
+      "pid": 32387,
+      "subject_ids": []
+    },
+    {
+      "pid": 32388,
+      "subject_ids": []
+    },
+    {
+      "pid": 32389,
+      "subject_ids": []
+    },
+    {
+      "pid": 32390,
+      "subject_ids": []
+    },
+    {
+      "pid": 32391,
+      "subject_ids": []
+    },
+    {
+      "pid": 32392,
+      "subject_ids": []
+    },
+    {
+      "pid": 32393,
+      "subject_ids": []
+    },
+    {
+      "pid": 32394,
+      "subject_ids": []
+    },
+    {
+      "pid": 32395,
+      "subject_ids": []
+    },
+    {
+      "pid": 32396,
+      "subject_ids": []
+    },
+    {
+      "pid": 32397,
+      "subject_ids": []
+    },
+    {
+      "pid": 32398,
+      "subject_ids": []
+    },
+    {
+      "pid": 32399,
+      "subject_ids": []
+    },
+    {
+      "pid": 32400,
+      "subject_ids": []
+    },
+    {
+      "pid": 32401,
+      "subject_ids": []
+    },
+    {
+      "pid": 32402,
+      "subject_ids": []
+    },
+    {
+      "pid": 32403,
+      "subject_ids": []
+    },
+    {
+      "pid": 32405,
+      "subject_ids": []
+    },
+    {
+      "pid": 32406,
+      "subject_ids": []
+    },
+    {
+      "pid": 32407,
+      "subject_ids": []
+    },
+    {
+      "pid": 32408,
+      "subject_ids": []
+    },
+    {
+      "pid": 32409,
+      "subject_ids": []
+    },
+    {
+      "pid": 32410,
+      "subject_ids": []
+    },
+    {
+      "pid": 32411,
+      "subject_ids": []
+    },
+    {
+      "pid": 32413,
+      "subject_ids": []
+    },
+    {
+      "pid": 32414,
+      "subject_ids": []
+    },
+    {
+      "pid": 32415,
+      "subject_ids": []
+    },
+    {
+      "pid": 32416,
+      "subject_ids": []
+    },
+    {
+      "pid": 32417,
+      "subject_ids": []
+    },
+    {
+      "pid": 32418,
+      "subject_ids": []
+    },
+    {
+      "pid": 32419,
+      "subject_ids": []
+    },
+    {
+      "pid": 32420,
+      "subject_ids": []
+    },
+    {
+      "pid": 32421,
+      "subject_ids": []
+    },
+    {
+      "pid": 32422,
+      "subject_ids": []
+    },
+    {
+      "pid": 32423,
+      "subject_ids": []
+    },
+    {
+      "pid": 32424,
+      "subject_ids": []
+    },
+    {
+      "pid": 32425,
+      "subject_ids": []
+    },
+    {
+      "pid": 32426,
+      "subject_ids": []
+    },
+    {
+      "pid": 32427,
+      "subject_ids": []
+    },
+    {
+      "pid": 32428,
+      "subject_ids": []
+    },
+    {
+      "pid": 32429,
+      "subject_ids": []
+    },
+    {
+      "pid": 32430,
+      "subject_ids": []
+    },
+    {
+      "pid": 32431,
+      "subject_ids": []
+    },
+    {
+      "pid": 32432,
+      "subject_ids": []
+    },
+    {
+      "pid": 32435,
+      "subject_ids": []
+    },
+    {
+      "pid": 32436,
+      "subject_ids": []
+    },
+    {
+      "pid": 32438,
+      "subject_ids": []
+    },
+    {
+      "pid": 32439,
+      "subject_ids": []
+    },
+    {
+      "pid": 32440,
+      "subject_ids": []
+    },
+    {
+      "pid": 32441,
+      "subject_ids": []
+    },
+    {
+      "pid": 32442,
+      "subject_ids": []
+    },
+    {
+      "pid": 32444,
+      "subject_ids": []
+    },
+    {
+      "pid": 32446,
+      "subject_ids": []
+    },
+    {
+      "pid": 32448,
+      "subject_ids": []
+    },
+    {
+      "pid": 32449,
+      "subject_ids": []
+    },
+    {
+      "pid": 32450,
+      "subject_ids": []
+    },
+    {
+      "pid": 32451,
+      "subject_ids": []
+    },
+    {
+      "pid": 32452,
+      "subject_ids": []
+    },
+    {
+      "pid": 32453,
+      "subject_ids": []
+    },
+    {
+      "pid": 32454,
+      "subject_ids": []
+    },
+    {
+      "pid": 32455,
+      "subject_ids": []
+    },
+    {
+      "pid": 32456,
+      "subject_ids": []
+    },
+    {
+      "pid": 32457,
+      "subject_ids": []
+    },
+    {
+      "pid": 32458,
+      "subject_ids": []
+    },
+    {
+      "pid": 32460,
+      "subject_ids": []
+    },
+    {
+      "pid": 32462,
+      "subject_ids": []
+    },
+    {
+      "pid": 32463,
+      "subject_ids": []
+    },
+    {
+      "pid": 32464,
+      "subject_ids": []
+    },
+    {
+      "pid": 32465,
+      "subject_ids": []
+    },
+    {
+      "pid": 32466,
+      "subject_ids": []
+    },
+    {
+      "pid": 32467,
+      "subject_ids": []
+    },
+    {
+      "pid": 32468,
+      "subject_ids": []
+    },
+    {
+      "pid": 32469,
+      "subject_ids": []
+    },
+    {
+      "pid": 32470,
+      "subject_ids": []
+    },
+    {
+      "pid": 32471,
+      "subject_ids": []
+    },
+    {
+      "pid": 32473,
+      "subject_ids": []
+    },
+    {
+      "pid": 32474,
+      "subject_ids": []
+    },
+    {
+      "pid": 32475,
+      "subject_ids": []
+    },
+    {
+      "pid": 32476,
+      "subject_ids": []
+    },
+    {
+      "pid": 32477,
+      "subject_ids": []
+    },
+    {
+      "pid": 32478,
+      "subject_ids": []
+    },
+    {
+      "pid": 32479,
+      "subject_ids": []
+    },
+    {
+      "pid": 32480,
+      "subject_ids": []
+    },
+    {
+      "pid": 32481,
+      "subject_ids": []
+    },
+    {
+      "pid": 32483,
+      "subject_ids": []
+    },
+    {
+      "pid": 32484,
+      "subject_ids": []
+    },
+    {
+      "pid": 32485,
+      "subject_ids": []
+    },
+    {
+      "pid": 32486,
+      "subject_ids": []
+    },
+    {
+      "pid": 32487,
+      "subject_ids": []
+    },
+    {
+      "pid": 32489,
+      "subject_ids": []
+    },
+    {
+      "pid": 32490,
+      "subject_ids": []
+    },
+    {
+      "pid": 32491,
+      "subject_ids": []
+    },
+    {
+      "pid": 32492,
+      "subject_ids": []
+    },
+    {
+      "pid": 32493,
+      "subject_ids": []
+    },
+    {
+      "pid": 32494,
+      "subject_ids": []
+    },
+    {
+      "pid": 32495,
+      "subject_ids": []
+    },
+    {
+      "pid": 32496,
+      "subject_ids": []
+    },
+    {
+      "pid": 32497,
+      "subject_ids": []
+    },
+    {
+      "pid": 32501,
+      "subject_ids": []
+    },
+    {
+      "pid": 32502,
+      "subject_ids": []
+    },
+    {
+      "pid": 32503,
+      "subject_ids": []
+    },
+    {
+      "pid": 32504,
+      "subject_ids": []
+    },
+    {
+      "pid": 32505,
+      "subject_ids": []
+    },
+    {
+      "pid": 32506,
+      "subject_ids": []
+    },
+    {
+      "pid": 32507,
+      "subject_ids": []
+    },
+    {
+      "pid": 32508,
+      "subject_ids": []
+    },
+    {
+      "pid": 32509,
+      "subject_ids": []
+    },
+    {
+      "pid": 32510,
+      "subject_ids": []
+    },
+    {
+      "pid": 32511,
+      "subject_ids": []
+    },
+    {
+      "pid": 32512,
+      "subject_ids": []
+    },
+    {
+      "pid": 32513,
+      "subject_ids": []
+    },
+    {
+      "pid": 32514,
+      "subject_ids": []
+    },
+    {
+      "pid": 32515,
+      "subject_ids": []
+    },
+    {
+      "pid": 32516,
+      "subject_ids": []
+    },
+    {
+      "pid": 32517,
+      "subject_ids": []
+    },
+    {
+      "pid": 32518,
+      "subject_ids": []
+    },
+    {
+      "pid": 32521,
+      "subject_ids": []
+    },
+    {
+      "pid": 32522,
+      "subject_ids": []
+    },
+    {
+      "pid": 32523,
+      "subject_ids": []
+    },
+    {
+      "pid": 32525,
+      "subject_ids": []
+    },
+    {
+      "pid": 32526,
+      "subject_ids": []
+    },
+    {
+      "pid": 32528,
+      "subject_ids": []
+    }
+  ],
+  "val_subjects": [
+    {
+      "pid": 32307,
+      "subject_ids": []
+    },
+    {
+      "pid": 32308,
+      "subject_ids": []
+    },
+    {
+      "pid": 32309,
+      "subject_ids": []
+    },
+    {
+      "pid": 32323,
+      "subject_ids": []
+    },
+    {
+      "pid": 32324,
+      "subject_ids": []
+    },
+    {
+      "pid": 32327,
+      "subject_ids": []
+    },
+    {
+      "pid": 32329,
+      "subject_ids": []
+    },
+    {
+      "pid": 32337,
+      "subject_ids": []
+    },
+    {
+      "pid": 32357,
+      "subject_ids": []
+    },
+    {
+      "pid": 32359,
+      "subject_ids": []
+    },
+    {
+      "pid": 32361,
+      "subject_ids": []
+    },
+    {
+      "pid": 32364,
+      "subject_ids": []
+    },
+    {
+      "pid": 32372,
+      "subject_ids": []
+    },
+    {
+      "pid": 32412,
+      "subject_ids": []
+    },
+    {
+      "pid": 32434,
+      "subject_ids": []
+    },
+    {
+      "pid": 32447,
+      "subject_ids": []
+    },
+    {
+      "pid": 32459,
+      "subject_ids": []
+    },
+    {
+      "pid": 32472,
+      "subject_ids": []
+    },
+    {
+      "pid": 32482,
+      "subject_ids": []
+    },
+    {
+      "pid": 32498,
+      "subject_ids": []
+    },
+    {
+      "pid": 32499,
+      "subject_ids": []
+    },
+    {
+      "pid": 32524,
+      "subject_ids": []
+    }
+  ],
+  "test_subjects": []
+}

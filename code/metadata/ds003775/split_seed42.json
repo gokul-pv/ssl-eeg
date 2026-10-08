@@ -1,0 +1,793 @@
+{
+  "dataset_id": "ds003775",
+  "seed": 42,
+  "cross_val": "mccv",
+  "task": null,
+  "train_subject_ids": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    16,
+    17,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    30,
+    31,
+    33,
+    34,
+    35,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    83,
+    84,
+    85,
+    86,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    104,
+    105,
+    106,
+    107,
+    109,
+    110,
+    111
+  ],
+  "val_subject_ids": [
+    4,
+    14,
+    15,
+    18,
+    29,
+    32,
+    36,
+    82,
+    87,
+    95,
+    103,
+    108
+  ],
+  "test_subject_ids": [],
+  "train_subjects": [
+    {
+      "pid": 1,
+      "subject_ids": [
+        "sub-001"
+      ]
+    },
+    {
+      "pid": 2,
+      "subject_ids": [
+        "sub-002"
+      ]
+    },
+    {
+      "pid": 3,
+      "subject_ids": [
+        "sub-003"
+      ]
+    },
+    {
+      "pid": 5,
+      "subject_ids": [
+        "sub-005"
+      ]
+    },
+    {
+      "pid": 6,
+      "subject_ids": [
+        "sub-006"
+      ]
+    },
+    {
+      "pid": 7,
+      "subject_ids": [
+        "sub-007"
+      ]
+    },
+    {
+      "pid": 8,
+      "subject_ids": [
+        "sub-008"
+      ]
+    },
+    {
+      "pid": 9,
+      "subject_ids": [
+        "sub-009"
+      ]
+    },
+    {
+      "pid": 10,
+      "subject_ids": [
+        "sub-010"
+      ]
+    },
+    {
+      "pid": 11,
+      "subject_ids": [
+        "sub-011"
+      ]
+    },
+    {
+      "pid": 12,
+      "subject_ids": [
+        "sub-012"
+      ]
+    },
+    {
+      "pid": 13,
+      "subject_ids": [
+        "sub-013"
+      ]
+    },
+    {
+      "pid": 16,
+      "subject_ids": [
+        "sub-016"
+      ]
+    },
+    {
+      "pid": 17,
+      "subject_ids": [
+        "sub-017"
+      ]
+    },
+    {
+      "pid": 19,
+      "subject_ids": [
+        "sub-019"
+      ]
+    },
+    {
+      "pid": 20,
+      "subject_ids": [
+        "sub-020"
+      ]
+    },
+    {
+      "pid": 21,
+      "subject_ids": [
+        "sub-021"
+      ]
+    },
+    {
+      "pid": 22,
+      "subject_ids": [
+        "sub-022"
+      ]
+    },
+    {
+      "pid": 23,
+      "subject_ids": [
+        "sub-023"
+      ]
+    },
+    {
+      "pid": 24,
+      "subject_ids": [
+        "sub-024"
+      ]
+    },
+    {
+      "pid": 25,
+      "subject_ids": [
+        "sub-025"
+      ]
+    },
+    {
+      "pid": 26,
+      "subject_ids": [
+        "sub-026"
+      ]
+    },
+    {
+      "pid": 27,
+      "subject_ids": [
+        "sub-027"
+      ]
+    },
+    {
+      "pid": 28,
+      "subject_ids": [
+        "sub-028"
+      ]
+    },
+    {
+      "pid": 30,
+      "subject_ids": [
+        "sub-030"
+      ]
+    },
+    {
+      "pid": 31,
+      "subject_ids": [
+        "sub-031"
+      ]
+    },
+    {
+      "pid": 33,
+      "subject_ids": [
+        "sub-033"
+      ]
+    },
+    {
+      "pid": 34,
+      "subject_ids": [
+        "sub-034"
+      ]
+    },
+    {
+      "pid": 35,
+      "subject_ids": [
+        "sub-035"
+      ]
+    },
+    {
+      "pid": 37,
+      "subject_ids": [
+        "sub-037"
+      ]
+    },
+    {
+      "pid": 38,
+      "subject_ids": [
+        "sub-038"
+      ]
+    },
+    {
+      "pid": 39,
+      "subject_ids": [
+        "sub-039"
+      ]
+    },
+    {
+      "pid": 40,
+      "subject_ids": [
+        "sub-040"
+      ]
+    },
+    {
+      "pid": 41,
+      "subject_ids": [
+        "sub-041"
+      ]
+    },
+    {
+      "pid": 42,
+      "subject_ids": [
+        "sub-042"
+      ]
+    },
+    {
+      "pid": 43,
+      "subject_ids": [
+        "sub-043"
+      ]
+    },
+    {
+      "pid": 44,
+      "subject_ids": [
+        "sub-044"
+      ]
+    },
+    {
+      "pid": 45,
+      "subject_ids": [
+        "sub-045"
+      ]
+    },
+    {
+      "pid": 46,
+      "subject_ids": [
+        "sub-046"
+      ]
+    },
+    {
+      "pid": 47,
+      "subject_ids": [
+        "sub-047"
+      ]
+    },
+    {
+      "pid": 48,
+      "subject_ids": [
+        "sub-048"
+      ]
+    },
+    {
+      "pid": 49,
+      "subject_ids": [
+        "sub-049"
+      ]
+    },
+    {
+      "pid": 50,
+      "subject_ids": [
+        "sub-050"
+      ]
+    },
+    {
+      "pid": 51,
+      "subject_ids": [
+        "sub-051"
+      ]
+    },
+    {
+      "pid": 52,
+      "subject_ids": [
+        "sub-052"
+      ]
+    },
+    {
+      "pid": 53,
+      "subject_ids": [
+        "sub-053"
+      ]
+    },
+    {
+      "pid": 54,
+      "subject_ids": [
+        "sub-054"
+      ]
+    },
+    {
+      "pid": 55,
+      "subject_ids": [
+        "sub-055"
+      ]
+    },
+    {
+      "pid": 56,
+      "subject_ids": [
+        "sub-056"
+      ]
+    },
+    {
+      "pid": 57,
+      "subject_ids": [
+        "sub-057"
+      ]
+    },
+    {
+      "pid": 58,
+      "subject_ids": [
+        "sub-058"
+      ]
+    },
+    {
+      "pid": 59,
+      "subject_ids": [
+        "sub-059"
+      ]
+    },
+    {
+      "pid": 60,
+      "subject_ids": [
+        "sub-060"
+      ]
+    },
+    {
+      "pid": 61,
+      "subject_ids": [
+        "sub-061"
+      ]
+    },
+    {
+      "pid": 62,
+      "subject_ids": [
+        "sub-062"
+      ]
+    },
+    {
+      "pid": 63,
+      "subject_ids": [
+        "sub-063"
+      ]
+    },
+    {
+      "pid": 64,
+      "subject_ids": [
+        "sub-064"
+      ]
+    },
+    {
+      "pid": 65,
+      "subject_ids": [
+        "sub-065"
+      ]
+    },
+    {
+      "pid": 66,
+      "subject_ids": [
+        "sub-066"
+      ]
+    },
+    {
+      "pid": 67,
+      "subject_ids": [
+        "sub-067"
+      ]
+    },
+    {
+      "pid": 68,
+      "subject_ids": [
+        "sub-068"
+      ]
+    },
+    {
+      "pid": 69,
+      "subject_ids": [
+        "sub-069"
+      ]
+    },
+    {
+      "pid": 70,
+      "subject_ids": [
+        "sub-070"
+      ]
+    },
+    {
+      "pid": 71,
+      "subject_ids": [
+        "sub-071"
+      ]
+    },
+    {
+      "pid": 72,
+      "subject_ids": [
+        "sub-072"
+      ]
+    },
+    {
+      "pid": 73,
+      "subject_ids": [
+        "sub-073"
+      ]
+    },
+    {
+      "pid": 74,
+      "subject_ids": [
+        "sub-074"
+      ]
+    },
+    {
+      "pid": 75,
+      "subject_ids": [
+        "sub-075"
+      ]
+    },
+    {
+      "pid": 76,
+      "subject_ids": [
+        "sub-076"
+      ]
+    },
+    {
+      "pid": 77,
+      "subject_ids": [
+        "sub-077"
+      ]
+    },
+    {
+      "pid": 78,
+      "subject_ids": [
+        "sub-078"
+      ]
+    },
+    {
+      "pid": 79,
+      "subject_ids": [
+        "sub-079"
+      ]
+    },
+    {
+      "pid": 80,
+      "subject_ids": [
+        "sub-080"
+      ]
+    },
+    {
+      "pid": 81,
+      "subject_ids": [
+        "sub-081"
+      ]
+    },
+    {
+      "pid": 83,
+      "subject_ids": [
+        "sub-083"
+      ]
+    },
+    {
+      "pid": 84,
+      "subject_ids": [
+        "sub-084"
+      ]
+    },
+    {
+      "pid": 85,
+      "subject_ids": [
+        "sub-085"
+      ]
+    },
+    {
+      "pid": 86,
+      "subject_ids": [
+        "sub-086"
+      ]
+    },
+    {
+      "pid": 88,
+      "subject_ids": [
+        "sub-088"
+      ]
+    },
+    {
+      "pid": 89,
+      "subject_ids": [
+        "sub-089"
+      ]
+    },
+    {
+      "pid": 90,
+      "subject_ids": [
+        "sub-090"
+      ]
+    },
+    {
+      "pid": 91,
+      "subject_ids": [
+        "sub-091"
+      ]
+    },
+    {
+      "pid": 92,
+      "subject_ids": [
+        "sub-092"
+      ]
+    },
+    {
+      "pid": 93,
+      "subject_ids": [
+        "sub-093"
+      ]
+    },
+    {
+      "pid": 94,
+      "subject_ids": [
+        "sub-094"
+      ]
+    },
+    {
+      "pid": 96,
+      "subject_ids": [
+        "sub-096"
+      ]
+    },
+    {
+      "pid": 97,
+      "subject_ids": [
+        "sub-097"
+      ]
+    },
+    {
+      "pid": 98,
+      "subject_ids": [
+        "sub-098"
+      ]
+    },
+    {
+      "pid": 99,
+      "subject_ids": [
+        "sub-099"
+      ]
+    },
+    {
+      "pid": 100,
+      "subject_ids": [
+        "sub-100"
+      ]
+    },
+    {
+      "pid": 101,
+      "subject_ids": [
+        "sub-101"
+      ]
+    },
+    {
+      "pid": 102,
+      "subject_ids": [
+        "sub-102"
+      ]
+    },
+    {
+      "pid": 104,
+      "subject_ids": [
+        "sub-104"
+      ]
+    },
+    {
+      "pid": 105,
+      "subject_ids": [
+        "sub-105"
+      ]
+    },
+    {
+      "pid": 106,
+      "subject_ids": [
+        "sub-106"
+      ]
+    },
+    {
+      "pid": 107,
+      "subject_ids": [
+        "sub-107"
+      ]
+    },
+    {
+      "pid": 109,
+      "subject_ids": [
+        "sub-109"
+      ]
+    },
+    {
+      "pid": 110,
+      "subject_ids": [
+        "sub-110"
+      ]
+    },
+    {
+      "pid": 111,
+      "subject_ids": [
+        "sub-111"
+      ]
+    }
+  ],
+  "val_subjects": [
+    {
+      "pid": 4,
+      "subject_ids": [
+        "sub-004"
+      ]
+    },
+    {
+      "pid": 14,
+      "subject_ids": [
+        "sub-014"
+      ]
+    },
+    {
+      "pid": 15,
+      "subject_ids": [
+        "sub-015"
+      ]
+    },
+    {
+      "pid": 18,
+      "subject_ids": [
+        "sub-018"
+      ]
+    },
+    {
+      "pid": 29,
+      "subject_ids": [
+        "sub-029"
+      ]
+    },
+    {
+      "pid": 32,
+      "subject_ids": [
+        "sub-032"
+      ]
+    },
+    {
+      "pid": 36,
+      "subject_ids": [
+        "sub-036"
+      ]
+    },
+    {
+      "pid": 82,
+      "subject_ids": [
+        "sub-082"
+      ]
+    },
+    {
+      "pid": 87,
+      "subject_ids": [
+        "sub-087"
+      ]
+    },
+    {
+      "pid": 95,
+      "subject_ids": [
+        "sub-095"
+      ]
+    },
+    {
+      "pid": 103,
+      "subject_ids": [
+        "sub-103"
+      ]
+    },
+    {
+      "pid": 108,
+      "subject_ids": [
+        "sub-108"
+      ]
+    }
+  ],
+  "test_subjects": []
+}

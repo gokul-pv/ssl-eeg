@@ -1,0 +1,8 @@
+# Model Config — CBraMod (braindecode) with Hugging Face pretrained weights
+
+model_type: "braindecode"
+model_name: "CBraMod"
+
+pretrained_repo_id: "braindecode/cbramod-pretrained"
+
+model_kwargs: {}

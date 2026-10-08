@@ -1,0 +1,22 @@
+# CLS token contribution to reconstruction (BrainLM-EEG)
+
+checkpoint_path: outputs/checkpoints/pretrain/brainlmeeg/best_pretrain_full.pth
+model_config: configs/model/brainlm_eeg.yaml
+pretrain_datasets:
+- {dataset_id: LEMON, split: val, dataset_config: configs/dataset/lemon.yaml}
+- {dataset_id: ds003775, split: val, dataset_config: configs/dataset/srm.yaml}
+- {dataset_id: ds005385, split: val, dataset_config: configs/dataset/dvs.yaml}
+perturbation_modes: [zeros, gaussian]
+expected_n_times: 3000
+normalize: true
+pretrain_seed: 42
+split_save_dir: metadata
+pretrain_balanced_sampling: false
+persistent_workers: false
+batch_size: 64
+num_workers: 8
+seed: 42
+gpu: 0
+output_dir: outputs/experiments/cls_token_ablation
+use_wandb: false
+wandb_mode: offline

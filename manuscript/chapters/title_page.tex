@@ -1,0 +1,45 @@
+% !TEX root = ../main.tex
+% Magda Gregorova, 2025-01-10
+% standard title page
+
+%% fill in your information
+\def\ThesisAuthor{Gokul Perumbayil Vijayakrishnan}                 % TODO: your full name
+\def\ThesisTitle{Self-Supervised Learning of Latent EEG Representations for Mental Health Related Analysis}
+\def\SupervisorOne{Prof.\ Dr.\ Magda Gregorová}
+\def\SupervisorTwo{Carl Zeiss Prof.\ Dr.\ Thomas Wolfers}          % TODO: second examiner
+\def\SumbissionDate{\today}                  % TODO: fix submission date before printing
+
+% for anonymous version
+\def\iswithfullname{1} % comment this out to create anonymous version
+\ifdefined\iswithfullname
+  \def\ShowThesisAuthor{\ThesisAuthor}
+\else
+  \def\ShowThesisAuthor{N.~N.}
+\fi
+
+% metadata of pdf
+\hypersetup{
+pdfauthor={\ShowThesisAuthor},
+pdftitle={\ThesisTitle},
+}
+
+% typsetting of titlepage
+\titlehead{Technical University of Applied Sciences Würzburg-Schweinfurt (THWS)\\
+Faculty of Computer Science and Business Information Systems}
+\title{\ThesisTitle\\[15mm]}
+\subject{Master Thesis}
+\subtitle{{\normalsize submitted for the completion of degree} \\
+\vskip 0.5cm
+Master of Science \\
+\vskip 0.2cm
+in \\
+\vskip 0.2cm
+Artificial Intelligence
+}
+\author{\ShowThesisAuthor}
+\date{\normalsize Submitted on: \SumbissionDate}
+\publishers{\raggedright
+  \normalsize{First Examiner: \SupervisorOne}\\
+  \normalsize{Second Examiner: \SupervisorTwo}\\
+}
+\maketitle

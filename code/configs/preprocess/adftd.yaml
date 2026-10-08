@@ -1,0 +1,48 @@
+# Preprocessing Config — ds004504 (ADFTD-RS)
+
+dataset_id: "ds004504"
+
+# Paths
+raw_data_path: "/mnt/datasets_v7/gokul/EEGData/ds004504"
+metadata_file: "metadata/ds004504/master_subject_table_ds004504.csv"
+
+# Output
+data_dir: "data"
+save_folder: "L3000_200Hz_EEGPrep_ICA"   # data/ds004504/L3000_200Hz_EEGPrep_ICA/
+
+# Windowing
+seg_len: 3000       # window size in samples (15 s × 200 Hz)
+overlap: 0          # no overlap
+
+# Scaling
+scale: 1.0e+6       # V → µV (null to skip)
+
+# Bandpass filter
+l_freq: 0.5         # bandpass low cutoff Hz
+h_freq: 45.0        # bandpass high cutoff Hz
+
+# Notch filter
+notch_freq: 50.0    # European power line (Greece)
+
+# EEGPrep
+eegprep: true
+eegprep_resample_to: 200          # resample inside EEGPrep (Hz)
+eegprep_burst_cutoff: 20          # ASR cutoff (z-score)
+eegprep_corr_threshold: 0.75      # bad channel correlation threshold (0.75–0.8)
+eegprep_common_avg_ref: true      # apply average reference at end of EEGPrep
+
+# ICA
+apply_ica: true
+ica_n_components: 20              # number of ICA components
+ica_prob_threshold: 0.8           # ICLabel probability threshold for exclusion
+ica_exclude_labels:               # artifact component types to remove
+  - "muscle artifact"
+  - "eye blink"
+  - "heart beat"
+  - "channel noise"
+  - "line noise"
+
+# Performance
+drop_last_window: true
+preload: true
+n_jobs: 1

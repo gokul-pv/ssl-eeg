@@ -1,0 +1,49 @@
+# XGBoost on handcrafted features × ADFTD — FTD vs HC — rolling
+
+seed: 42
+
+# CV strategy
+protocol: "rolling"              # rolling (five-fold CV) | loso | full
+n_folds: 5
+
+dataset_config: "configs/dataset/adftd.yaml"
+
+# Model
+ml_model: "xgb"
+
+xgb_n_estimators: 300
+xgb_max_depth: 4
+xgb_learning_rate: 0.05
+
+pca_components: null
+
+# Feature extraction
+ml_features:
+  domains: ["dft", "time", "dwt", "cwt"]  # any subset of: dft, cwt, dwt, time
+  band_limits:
+    - [0.5,  4.0]    # delta
+    - [4.0,  8.0]    # theta
+    - [8.0,  13.0]   # alpha
+    - [13.0, 30.0]   # beta
+    - [30.0, 45.0]   # gamma
+  wavelet: "db4"
+  cwt_wavelet: "morl"
+  n_jobs: 4
+
+# Checkpoint
+save_dir: "outputs/checkpoints/train_ml"
+
+normalize: false
+classify_choice: "ftd_vs_hc"
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-baselines"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/ds004504/"
+wandb_upload_terminal_log_artifact: true
+
+# Terminal/File Logs
+terminal_log_dir: "outputs/logs/ds004504/baseline_ml"

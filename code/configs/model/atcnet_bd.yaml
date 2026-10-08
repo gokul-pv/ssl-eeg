@@ -1,0 +1,32 @@
+# Model Config — ATCNet (braindecode)
+
+model_type: "braindecode"
+model_name: "ATCNet"
+
+model_kwargs:
+  # Conv block
+  conv_block_n_filters: 16          # EEGNet-style temporal filter count
+  conv_block_kernel_length_1: 64    # temporal filter length (~0.32 s @ 200 Hz)
+  conv_block_kernel_length_2: 16    # pointwise kernel length
+  conv_block_pool_size_1: 8         # average pooling window
+  conv_block_pool_size_2: 7         # second pool window (braindecode default = 7)
+  conv_block_depth_mult: 2          # depthwise multiplier (braindecode default = 2)
+  conv_block_dropout: 0.3
+
+  # Attention block
+  n_windows: 5                      # number of sliding attention windows
+  head_dim: 8                       # per-head dimension
+  num_heads: 2                      # number of attention heads
+  att_drop_prob: 0.5                #
+
+  # TCN block
+  tcn_depth: 2                      # number of temporal blocks
+  tcn_kernel_size: 4                # dilated causal conv kernel
+  tcn_drop_prob: 0.3                #
+  tcn_activation: "elu"
+
+  # Fusion
+  concat: false
+
+  # Regularisation
+  max_norm_const: 0.25              # max-norm constraint on output layer weights

@@ -1,0 +1,58 @@
+% !TEX root = ../main.tex
+% =============================================================================
+% CHAPTER 1 - INTRODUCTION
+% VOICE: impersonal throughout. Never "we", never "I".
+% =============================================================================
+
+\chapter{Introduction}\label{ch:introduction}
+
+Resting-state electroencephalography (EEG) provides a non-invasive measure of ongoing brain activity and is widely used to investigate neural patterns associated with neurological and psychiatric conditions. However, EEG exhibits substantial inter-participant variability, while recordings acquired across datasets may additionally differ in cohort composition, electrode configuration, acquisition hardware, sampling rate, preprocessing, and recording conditions. These sources of variability can limit the extent to which representations learned from one dataset remain informative for unseen participants or independently collected data \parencite{kimDeepLearningBasedEEG2023,engemannReusableBenchmarkBrainAge2021,waghEvaluatingLatentSpaceRobustness2022}. Participant level and cross-dataset generalisation are therefore important challenges in clinical EEG analysis.
+
+Conventional EEG classification approaches typically rely on handcrafted features combined with classical machine learning classifiers or on supervised deep learning models trained directly on the downstream task \parencite{craikDeepLearningElectroencephalogram2019,gemeinMachineLearningBasedDiagnostics2020}. More recently, self-supervised learning (SSL) has been used to pretrain EEG encoders using objectives derived from the signal itself, after which the learned representations are transferred to downstream classification tasks \parencite{banvilleUncoveringStructureClinical2020,kostasBENDRUsingTransformers2021}.
+
+Recent studies have shown that self-supervised pretraining can produce EEG representations that support downstream classification across a range of tasks \parencite{jiangLARGEBRAINMODEL2024,wangCBraModCrissCrossBrain2025a,el2026reve}. However, the effectiveness of these approaches for resting-state clinical EEG remains less established. In particular, it remains unclear how self-supervised representations compare with classical and supervised approaches across different clinical tasks, and under what conditions they provide useful transferable representations. Moreover, successful generalisation to unseen participants within a dataset does not necessarily imply robust transfer to independently collected datasets, where additional differences in cohorts and acquisition conditions are introduced.
+
+The utility of self-supervised EEG representations may also depend on choices made during pretraining and representation extraction, including masking configuration, spatial encoding, auxiliary objectives, and encoder depth. For multichannel EEG, learned channel embeddings encode channel identity but do not explicitly capture the physical relationships between electrodes, motivating the use of geometry-aware spatial representations. EEG microstates provide a complementary description of recurring whole scalp topographies that have been associated with group level differences in neurological and psychiatric conditions \parencite{khannaReliabilityRestingStateMicrostate2014a,koenigEEGMetaMicrostates2023}. Whether explicit electrode geometry or microstate-informed auxiliary supervision improves downstream performance within a common self-supervised framework, and how these effects interact with masking and representation depth, therefore remains an open empirical question. These design choices are examined in greater detail in Section~\ref{sec:rel_positioning}.
+
+In this thesis, BrainLM \parencite{caroFOUNDATIONMODELBRAIN2024a}, a masked autoencoder framework originally developed for functional magnetic resonance imaging (fMRI), was adapted to resting-state EEG. The resulting BrainLM-EEG model represents multichannel EEG as channel-time patches and is pretrained by reconstructing masked signal content. Two novel variants were developed to investigate specific choices in self-supervised EEG representation learning. BrainLM-EEG-RoPE replaces learned spatial channel embeddings with geometry-aware rotary positional encoding derived from electrode locations, while BrainLM-EEG-Microstate augments the reconstruction objective with an auxiliary EEG microstate prediction task. The remaining architecture and pretraining framework are kept consistent across the variants, allowing the effect of each modification to be examined separately.
+
+The empirical evaluation comprises four clinical classification tasks: Alzheimer's disease (AD) versus healthy controls, frontotemporal dementia (FTD) versus healthy controls, first-episode psychosis (FEP) versus healthy controls, and major depressive disorder (MDD) versus healthy controls. BrainLM-EEG and its variants are compared with classical machine learning approaches, supervised deep learning models, and existing pretrained EEG models using both linear probing and finetuning. Participant level generalisation is evaluated using five-fold cross-validation and leave-one-subject-out (LOSO) evaluation, while cross-dataset generalisation is assessed by transferring models trained on the FEP dataset to an independently collected schizophrenia (SCZ) dataset. Additional experiments examine masking configuration, encoder depth, the contribution of the CLS token to masked reconstruction, and the downstream information retained in reconstructed EEG.
+
+\section{Research Questions}\label{sec:intro_rqs}
+
+The primary goal of this thesis is to determine whether the proposed self-supervised BrainLM-EEG models learn useful and generalisable representations of resting-state EEG for clinical classification. A further goal is to determine how selected pretraining and architectural choices affect downstream performance and to investigate what information is used and retained by the learned representations. These goals are addressed through the following research questions:
+
+\begin{enumerate}
+
+    \item \textbf{RQ1:} How do the proposed BrainLM-EEG models compare with classical machine learning, supervised deep learning, and existing pretrained EEG models on downstream clinical classification tasks, and how does performance differ between linear probing and finetuning?
+
+    \item \textbf{RQ2:} How well do the proposed BrainLM-EEG models generalise to unseen participants within a dataset and to an independently collected dataset, relative to supervised baselines?
+
+    \item \textbf{RQ3:} How do design choices including masking configuration, spatial positional encoding, auxiliary pretraining objectives, and encoder depth affect downstream classification performance?
+
+    \item \textbf{RQ4:} What do CLS token perturbation and classification of reconstructed EEG reveal about the information encoded and retained by BrainLM-EEG?
+
+\end{enumerate}
+
+Together, these questions assess the downstream utility of the proposed representations, their generalisation across participants and datasets, the influence of selected representation learning choices, and the information retained during self-supervised pretraining.
+
+\section{Contributions}\label{sec:intro_contributions}
+
+The main contributions of this thesis are:
+
+\begin{itemize}
+
+    \item \textbf{BrainLM-EEG:} This thesis adapts BrainLM, a masked autoencoder originally developed for fMRI, to multichannel resting-state EEG. The resulting model is pretrained on 925 participants from six datasets.
+
+    \item \textbf{Two extensions:} Two novel variants are developed: BrainLM-EEG-RoPE incorporates electrode geometry through rotary positional encoding, while BrainLM-EEG-Microstate incorporates EEG microstates through an auxiliary prediction objective. Both extensions are evaluated under controlled conditions to isolate their respective contributions.
+
+    \item \textbf{Controlled comparative evaluation:} BrainLM-EEG and its variants are evaluated alongside classical machine learning methods, supervised deep learning models, and existing pretrained EEG models across four clinical classification tasks. Evaluation uses participant level data splits and a common protocol designed to prevent participant leakage during pretraining and downstream evaluation.
+
+    \item \textbf{Systematic evaluation of representation and generalisation:} The thesis investigates the effects of masking configuration and encoder depth on downstream performance and evaluates generalisation under both participant level cross-validation and external cross-dataset transfer. Both linear probing and finetuning are evaluated to assess how the learned representations transfer to clinical tasks.
+
+\end{itemize}
+
+
+\section{Thesis Outline}\label{sec:intro_outline}
+
+The subsequent chapters are organised as follows. Chapter~\ref{ch:background} provides background on resting-state EEG, the clinical conditions considered in this thesis, and supervised and self-supervised representation learning. Chapter~\ref{ch:related} reviews related work on EEG representation learning and clinical classification. Chapter~\ref{ch:method} describes the datasets, proposed models, comparison baselines, pretraining procedure, downstream evaluation protocols, and model analysis experiments. Chapter~\ref{ch:results} presents the experimental results. Chapter~\ref{ch:discussion} discusses the findings, limitations, and implications and answers the research questions stated above. Chapter~\ref{ch:conclusion} concludes the thesis and outlines directions for future work.

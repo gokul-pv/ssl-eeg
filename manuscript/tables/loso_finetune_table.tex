@@ -1,0 +1,28 @@
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3pt}
+  \caption[Linear probing versus full finetuning]{Linear probing versus full finetuning of BrainLM-EEG model variants under LOSO evaluation.}
+  \label{tab:loso_ft}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{l cc cc cc cc}
+    \toprule
+     & \multicolumn{2}{c}{AD} & \multicolumn{2}{c}{FTD} & \multicolumn{2}{c}{FEP} & \multicolumn{2}{c}{MDD} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+     & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ & AUPRC $\uparrow$ & BAcc $\uparrow$ \\
+    \midrule
+    BrainLM-EEG (LP) & 94.7 & 81.4 & 86.2 & 81.8 & \underline{68.3} & \textbf{61.1} & 32.9 & 49.5 \\
+    BrainLM-EEG-RoPE (LP) & \underline{96.1} & \textbf{87.0} & \underline{92.3} & \textbf{92.9} & \textbf{68.7} & 43.9 & \underline{36.3} & 51.1 \\
+    BrainLM-EEG-Microstate (LP) & \textbf{96.9} & \underline{85.3} & \textbf{94.6} & \underline{92.3} & 62.8 & \underline{56.9} & \textbf{37.9} & \underline{51.6} \\
+    \midrule
+    BrainLM-EEG (FT) & 93.3 & 84.9 & 87.4 & 73.4 & 62.8 & 56.7 & 31.7 & 51.1 \\
+    BrainLM-EEG-RoPE (FT) & 88.0 & 80.5 & 82.6 & 69.1 & 61.4 & 51.4 & 29.6 & \textbf{51.8} \\
+    BrainLM-EEG-Microstate (FT) & 93.7 & 84.0 & 86.7 & 76.2 & 60.6 & 56.1 & 26.7 & 49.1 \\
+    \bottomrule
+  \end{tabular}%
+  }
+  \\[3pt]
+  \begin{minipage}{\linewidth}\footnotesize\raggedright
+    AD: Alzheimer's disease; FTD: frontotemporal dementia; FEP: first-episode psychosis; MDD: major depressive disorder; all versus healthy controls. LP: linear probe; FT: full finetuning. Values are subject level $\times 100$. \textbf{Bold}: best per column; \underline{underline}: second best.
+  \end{minipage}
+\end{table}

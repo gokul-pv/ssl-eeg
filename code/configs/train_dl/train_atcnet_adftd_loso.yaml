@@ -1,0 +1,38 @@
+# ATCNet (supervised, from scratch) × ADFTD — AD vs HC — loso
+
+seed: 42
+gpu: 0
+
+dataset_config: "configs/dataset/adftd.yaml"
+model_config:   "configs/model/atcnet_bd.yaml"
+
+# Task override
+classify_choice: "ad_vs_hc"
+
+# Training
+train_epochs: 100
+patience: 10
+early_stopping_metric: "val_loss"
+learning_rate: 5.0e-4
+weight_decay: 1.0e-4
+max_grad_norm: 4.0
+log_interval: 50
+log_batch: true
+
+# Checkpoint
+save_dir: "outputs/checkpoints/train_dl"
+
+protocol: "loso"              # rolling (five-fold CV) | loso | full
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-loso-comparison"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/ds004504/"
+wandb_data_dir: "outputs/wandb/ds004504/_wandb_data"
+wandb_upload_terminal_log_artifact: true
+
+# Terminal/File Logs
+terminal_log_dir: "outputs/logs/ds004504/train"

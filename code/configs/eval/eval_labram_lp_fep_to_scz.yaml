@@ -1,0 +1,30 @@
+# FEP → SCZ cross-dataset evaluation — labram_lp
+
+gpu: 0
+
+mode: "linear_probe"
+
+freeze_backbone: true
+
+dataset_config: "configs/dataset/scz.yaml"
+model_config:   "configs/model/labram_bd_hf.yaml"
+
+source_dataset_id: "ds003944"
+
+class_names: ["HC", "Psychosis"]
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-cross-eval"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/probe"
+wandb_data_dir: "outputs/wandb/probe/_wandb_data"
+results_dir: "outputs/cv_results/scz/eval"
+figures_dir: "outputs/figures/probe"
+terminal_log_dir: "outputs/logs/probe/scz/eval"
+
+# Checkpoints
+checkpoint_path: "outputs/checkpoints/probe/labram/ds003944/fep/linear_probe/seed42/full/best.pth"          # model trained on all FEP participants
+rolling_checkpoint_dir: "outputs/checkpoints/probe/labram/ds003944/fep/linear_probe/seed42"   # five-fold CV models (run1 … run5)

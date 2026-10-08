@@ -1,0 +1,40 @@
+# Masking ablation — linear probe × FEP vs HC — five-fold CV
+
+mode: "linear_probe"
+
+dataset_config: "configs/dataset/fep_cross.yaml"
+model_config:   "configs/model/brainlm_eeg.yaml"
+
+split_save_dir: "metadata"
+pretrain_seed: 42
+
+seed: 42
+protocol: "rolling"              # rolling (five-fold CV) | loso | full
+n_folds: 5
+gpu: 0
+train_epochs: 50
+patience: 10
+learning_rate: 1.0e-3
+weight_decay: 0.0
+warmup_epochs: 0
+max_grad_norm: 1.0
+batch_size: 128
+num_workers: 8
+persistent_workers: true
+
+early_stopping_metric: "val_loss"
+use_subject_vote: true
+
+use_wandb: true
+wandb_project: "eeg-ssl-finetune-ablation"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_upload_terminal_log_artifact: true
+
+# Per-ablation paths
+ablation_name: "ratio_75"
+pretrained_encoder_path: "outputs/checkpoints/pretrain/ablation/ratio_75/brainlmeeg/best_pretrain_encoder.pth"
+save_dir: "outputs/checkpoints/finetune/ablation/ratio_75"
+wandb_dir: "outputs/wandb/finetune/ablation/ratio_75"
+terminal_log_dir: "outputs/logs/finetune/ablation/ratio_75"

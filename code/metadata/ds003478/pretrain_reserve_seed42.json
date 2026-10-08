@@ -1,0 +1,176 @@
+{
+  "dataset_id": "ds003478",
+  "seed": 42,
+  "reserve_subject_ids": [
+    2,
+    11,
+    16,
+    20,
+    27,
+    33,
+    41,
+    43,
+    46,
+    48,
+    52,
+    59,
+    60,
+    64,
+    67,
+    70,
+    74,
+    75,
+    78,
+    82,
+    101,
+    104,
+    116,
+    120
+  ],
+  "reserve_subjects": [
+    {
+      "pid": 2,
+      "subject_ids": [
+        "sub-002"
+      ]
+    },
+    {
+      "pid": 11,
+      "subject_ids": [
+        "sub-011"
+      ]
+    },
+    {
+      "pid": 16,
+      "subject_ids": [
+        "sub-016"
+      ]
+    },
+    {
+      "pid": 20,
+      "subject_ids": [
+        "sub-020"
+      ]
+    },
+    {
+      "pid": 27,
+      "subject_ids": [
+        "sub-027"
+      ]
+    },
+    {
+      "pid": 33,
+      "subject_ids": [
+        "sub-033"
+      ]
+    },
+    {
+      "pid": 41,
+      "subject_ids": [
+        "sub-041"
+      ]
+    },
+    {
+      "pid": 43,
+      "subject_ids": [
+        "sub-043"
+      ]
+    },
+    {
+      "pid": 46,
+      "subject_ids": [
+        "sub-046"
+      ]
+    },
+    {
+      "pid": 48,
+      "subject_ids": [
+        "sub-048"
+      ]
+    },
+    {
+      "pid": 52,
+      "subject_ids": [
+        "sub-052"
+      ]
+    },
+    {
+      "pid": 59,
+      "subject_ids": [
+        "sub-059"
+      ]
+    },
+    {
+      "pid": 60,
+      "subject_ids": [
+        "sub-060"
+      ]
+    },
+    {
+      "pid": 64,
+      "subject_ids": [
+        "sub-064"
+      ]
+    },
+    {
+      "pid": 67,
+      "subject_ids": [
+        "sub-067"
+      ]
+    },
+    {
+      "pid": 70,
+      "subject_ids": [
+        "sub-070"
+      ]
+    },
+    {
+      "pid": 74,
+      "subject_ids": [
+        "sub-074"
+      ]
+    },
+    {
+      "pid": 75,
+      "subject_ids": [
+        "sub-075"
+      ]
+    },
+    {
+      "pid": 78,
+      "subject_ids": [
+        "sub-078"
+      ]
+    },
+    {
+      "pid": 82,
+      "subject_ids": [
+        "sub-082"
+      ]
+    },
+    {
+      "pid": 101,
+      "subject_ids": [
+        "sub-101"
+      ]
+    },
+    {
+      "pid": 104,
+      "subject_ids": [
+        "sub-104"
+      ]
+    },
+    {
+      "pid": 116,
+      "subject_ids": [
+        "sub-116"
+      ]
+    },
+    {
+      "pid": 120,
+      "subject_ids": [
+        "sub-120"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+# EEGNeX (supervised, from scratch) × MDD vs HC — rolling
+
+seed: 42
+gpu: 0
+
+dataset_config: "configs/dataset/mdd.yaml"
+model_config:   "configs/model/eegnex_bd.yaml"
+
+# Training
+train_epochs: 100
+patience: 10
+early_stopping_metric: "val_loss"
+learning_rate: 1.0e-4
+weight_decay: 1.0e-4
+max_grad_norm: 4.0
+log_interval: 50
+log_batch: true
+
+# Checkpoint
+save_dir: "outputs/checkpoints/train_dl"
+
+protocol: "rolling"              # rolling (five-fold CV) | loso | full
+n_folds: 5
+
+# WandB
+use_wandb: true
+wandb_project: "eeg-baselines"
+wandb_entity: null                  # your W&B entity/team
+wandb_run_name: null
+wandb_mode: "offline"
+wandb_dir: "outputs/wandb/ds003478/"
+wandb_data_dir: "outputs/wandb/ds003478/_wandb_data"
+wandb_upload_terminal_log_artifact: true
+
+# Terminal/File Logs
+terminal_log_dir: "outputs/logs/ds003478/train"

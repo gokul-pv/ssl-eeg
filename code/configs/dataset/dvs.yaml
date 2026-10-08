@@ -1,0 +1,17 @@
+# Dataset Config — Dortmund Vital Study (ds005385)
+
+dataset_id: "ds005385"
+
+data_dir: "data"
+save_folder: "L3000_200Hz_EEGPrep_ICA_all"  # data/ds005385/L3000_200Hz_EEGPrep_ICA_all/
+sfreq: 200                                  # Hz (informational, not re-applied)
+
+# Subject split
+cross_val: "mccv"
+ratio_a: 0.9      # 90% train
+ratio_b: 1.0      # remaining 10% -> val, nothing left for test
+
+# DataLoader
+normalize: true    # per-window per-channel z-score normalisation
+preload: true      # load all windows into RAM at dataset build time
+n_jobs: 1

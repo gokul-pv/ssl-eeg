@@ -1,0 +1,47 @@
+# Preprocessing Config — ds003775 (SRM Resting-state EEG)
+
+dataset_id: "ds003775"
+
+# Paths
+raw_data_path: "/mnt/datasets_v7/gokul/EEGData/ds003775"  # BIDS root
+
+# Output
+data_dir: "data"
+save_folder: "L3000_200Hz_EEGPrep_ICA"  # data/ds003775/L3000_200Hz_EEGPrep_ICA/
+
+# Windowing
+seg_len: 3000     # window size in samples (15 s × 200 Hz)
+overlap: 0        # no overlap
+
+# Scaling
+scale: 1.0e+6     # V → µV
+
+# Bandpass filter
+l_freq: 0.5
+h_freq: 45.0
+
+# Notch filter
+notch_freq: 50.0
+
+# EEGPrep
+eegprep: true
+eegprep_resample_to: 200          # resample to 200 Hz inside EEGPrep
+eegprep_burst_cutoff: 20          # ASR cutoff (z-score)
+eegprep_corr_threshold: 0.75      # bad channel correlation threshold
+eegprep_common_avg_ref: true      # apply average reference
+
+# ICA
+apply_ica: true
+ica_n_components: 20
+ica_prob_threshold: 0.8
+ica_exclude_labels:
+  - "muscle artifact"
+  - "eye blink"
+  - "heart beat"
+  - "channel noise"
+  - "line noise"
+
+# Performance
+drop_last_window: true
+preload: true
+n_jobs: 1
