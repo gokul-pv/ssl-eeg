@@ -14,7 +14,7 @@ It also contains every baseline and evaluation protocol used in the thesis.
 | Path | Contents |
 |---|---|
 | `code/` | Preprocessing, models, training and evaluation entrypoints, experiments, configs, tests |
-| `manuscript/` | LaTeX sources and the submitted PDF (`Thesis_Gokul.pdf`), unmodified |
+| `manuscript/` | LaTeX sources and the submitted PDF |
 
 ## Installation
 
